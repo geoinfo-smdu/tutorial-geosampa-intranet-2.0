@@ -1,0 +1,1931 @@
+<!DOCTYPE html>
+
+<html lang="pt">
+
+<head>
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="smdu-geoinfo">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS do projeto -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Bootstrap JS (necessário para navbar colapsável) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+
+    <!-- JavaScript personalizado -->
+    <script src="script.js" defer></script>
+
+    <title>Tutorial Intranet</title>
+    
+</head>
+
+<body>
+
+    <nav id="menu-conteudo" class="menu-lateral" style="display: none;">
+
+        <a class="nav-link nivel1" href="#01">Especificações técnicas</a>
+        <ul class="nav flex-column ms-3">
+            <li><a class="nav-link nivel2" href="#0101">Sistemas de Referência Cartográfica</a></li>
+            <li><a class="nav-link nivel2" href="#0102">Dicas e instruções importantes</a></li>
+        </ul>
+
+        <a class="nav-link nivel1" href="#02">Disponibilização dos dados</a>
+        <ul class="nav flex-column ms-3">
+            <li><a class="nav-link nivel2" href="#0201">Webservice</a></li>
+            <li><a class="nav-link nivel2" href="#0202">Download de arquivos</a></li>
+            <li><a class="nav-link nivel2" href="#0203">Download com integração</a></li>
+        </ul>
+
+        <a class="nav-link nivel1" href="#03">Conceitos</a>
+        <ul class="nav flex-column ms-3">
+            <li><a class="nav-link nivel2" href="#0301">Dados abertos</a></li>
+            <li><a class="nav-link nivel2" href="#0302">Metadados</a></li>
+            <li><a class="nav-link nivel2" href="#0303">Dicionário de dados</a></li>
+            <li><a class="nav-link nivel2" href="#0304">Escala</a></li>
+            <li><a class="nav-link nivel2" href="#0305">Coordenadas</a></li>
+        </ul>
+
+        <a class="nav-link nivel1" href="#04">Tela Inicial e Navegação</a>
+        <ul class="nav flex-column ms-3">
+
+            <li><a class="nav-link nivel2" href="#0401">Mapa Digital da Cidade - MDC</a></li>
+            <li><a class="nav-link nivel2" href="#0402">Tipos de cursor</a></li>
+
+            <!-- SUBMENU -->
+            <li>
+                <button class="nav-link nivel2 d-flex justify-content-between align-items-center w-100 text-start"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#submenu-0403"
+                        aria-controls="submenu-0403">
+                    Busca
+                </button>
+
+                <ul class="collapse ms-3" id="submenu-0403">
+                    <li><a class="nav-link nivel2" href="#040301">Aspectos gerais</a></li>
+                    <li><a class="nav-link nivel2" href="#040302">Logradouros</a></li>
+                    <li><a class="nav-link nivel2" href="#040303">SQL</a></li>
+                    <li><a class="nav-link nivel2" href="#040304">Coordenadas</a></li>
+                    <li><a class="nav-link nivel2" href="#040305">Nominatim</a></li>
+                </ul>
+            </li>
+
+            <!-- SUBMENU -->
+            <li>
+                <button class="nav-link nivel2 d-flex justify-content-between align-items-center w-100 text-start"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#submenu-0404"
+                        aria-controls="submenu-0404">
+                    Menu de ferramentas
+                </button>
+
+                <ul class="collapse ms-3" id="submenu-0404">
+                    <li><button class="nav-link nivel2 text-start w-100" data-target-collapse="#collapse-zoom">Zoom mais / zoom menos</button></li>
+                    <li><button class="nav-link nivel2 text-start w-100" data-target-collapse="#collapse-rotacao">Rotação</button></li>
+                    <li><button class="nav-link nivel2 text-start w-100" data-target-collapse="#collapse-medicao">Medição</button></li>
+                    <li><button class="nav-link nivel2 text-start w-100" data-target-collapse="#collapse-desenho">Desenho</button></li>
+                    <li><button class="nav-link nivel2 text-start w-100" data-target-collapse="#collapse-consultas">Consultas</button></li>
+                    <li><button class="nav-link nivel2 text-start w-100" data-target-collapse="#collapse-rastrear-localizacao">Rastrear localização</button></li>
+                    <li><button class="nav-link nivel2 text-start w-100" data-target-collapse="#collapse-integracoes">Integrações</button></li>
+                </ul>
+            </li>
+
+        </ul>
+
+        <a class="nav-link nivel1" href="#05">Camadas e compartilhamento</a>
+
+        <a class="nav-link nivel1" href="#06">Perguntas frequentes</a>
+        <a class="nav-link nivel1" href="#07">Saiba mais</a>
+        <a class="nav-link nivel1" href="#08">Ficha técnica</a>
+
+    </nav>
+
+    <nav class="navbar navbar-custom fixed-top">
+        <div class="container-fluid">
+
+            <!-- BOTÃO MOBILE -->
+
+            <button class="btn btn-light d-lg-none me-2"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#menuOffcanvas">
+                ☰
+            </button>
+
+            <a href="#00" class="navbar-brand d-flex align-items-center text-white">
+
+                <span class="d-none d-sm-inline">
+                Tutorial <strong>GeoSampa</strong>
+                </span>
+                <span class="d-inline d-sm-none">
+                <strong>GeoSampa</strong>
+                </span>
+
+                <img src=imagens/00000000_logo_header.jpg class="logo-header">
+
+            </a>
+
+        </div>
+    </nav>
+
+    <!-- OFFCANVAS PARA MOBILE -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="menuOffcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="menuOffcanvasLabel">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+        </div>
+        <div class="offcanvas-body" id="menu-mobile">
+            <!-- Menu mobile será inserido aqui via JavaScript -->
+        </div>
+    </div>
+
+    <!-- ESTRUTURA PRINCIPAL COM GRID -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- MENU LATERAL PARA DESKTOP -->
+        <aside id="menu-lateral" class="col-lg-2 d-none d-lg-block">
+            <nav id="navbar-progress">
+                <!-- Menu desktop será inserido aqui -->
+            </nav>
+        </aside>
+
+
+            <div class="col-lg-1"></div>
+
+            <main class="col-lg-9 col-xl-7">
+
+                <h1 id="00" ><br><br>Tutorial GeoSampa Intranet</h1>
+
+                    <p> Este tutorial auxilia no uso das ferramentas disponíveis e na navegação pelos mapas e camadas de dados do GeoSampa 
+                        <strong>Intranet</strong>, facilmente identificado por uma faixa azul na parte superior do portal. Pode ser acessado exclusivamente 
+                        pelos usuários da Prefeitura de São Paulo.</p>
+
+                    <p> Para a população em geral, fora da rede Prodam, há o GeoSampa na internet. O GeoSampa <strong>Internet</strong> pode ser facilmente 
+                        identificado por uma faixa preta na parte superior do portal. </p>
+                    
+                    <p> O GeoSampa Intranet passou por uma reformulação da Interface de navegação. Este tutorial é relacionado à essa nova versão. Nos 
+                        próximos meses, a versão antiga e nova do GeoSampa irão coexistir para que façamos uma transição tranquila. A seguir, deixamos os 
+                        links de acesso das diferentes versões. </p>
+                    
+                    <div class="table-responsive">
+
+                            <table  class="table" >
+                                <thead>
+                                    <tr>
+                                        <th>Tipo do serviço</th>
+                                        <th>Link</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>GeoSampa Intranet</td>
+                                        <td><a href="http://mapas.geosampa2.prodam/" target="_blank">http://mapas.geosampa2.prodam/</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>GeoSampa Internet</td>
+                                        <td><a href="https://geosampa.prefeitura.sp.gov.br/" target="_blank">https://geosampa.prefeitura.sp.gov.br/</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                    </div>
+
+                <h1 id="01">Especificações técnicas</h1>
+
+                    <h2 id="0101">Sistema de Referência Cartográfica</h2>
+
+                        <p> No GeoSampa, as informações são disponibilizadas em diversos sistemas de referência cartográfica, como SIRGAS2000 e WGS84. A 
+                            projeção UTM/SIRGAS2000 (EPGS: 31983) é a referência para o Sistema Geodésico Brasileiro (SGB) e para o Sistema Cartográfico 
+                            Nacional (SCN). A seguir, deixamos os sistemas de referência cartográfica que podem ser encontrados no GeoSampa: </p>
+
+                        <div class="table-responsive">
+
+                            <table  class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Datum</th>
+                                        <th>Projeção</th>
+                                        <th>EPSG**</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>SIRGAS 2000</td>
+                                        <td>UTM* 23 S</td>
+                                        <td>31983</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SIRGAS 2000</td>
+                                        <td>GEOGRÁFICA</td>
+                                        <td>4674</td>
+                                    </tr>
+                                    <tr>
+                                        <td>WGS 84</td>
+                                        <td>UTM* 23 S</td>
+                                        <td>32723</td>
+                                    </tr>
+                            </table>
+
+                        </div>
+
+                            <p> *UTM: Universal Transversa de Mercator - Sistema de coordenadas cartesianas</p>
+                            
+                            <p> **A EPSG vem do nome do Grupo Europeu de Pesquisa Petrolífera (European Petroleum Survey Group), entidade que organizou por 
+                                meio de códigos numéricos os Sistemas de Referência de Coordenadas (SRC) do mundo.</p>
+
+                    <h2 id="0102">Dicas e instruções importantes</h2>
+                        <p> Verifique se seu bloqueador de “pop-up” está desativado. Caso contrário, alguns downloads podem ser bloqueados.</p>
+                        <p> Para evitar possíveis erros, sugerimos realizar periodicamente a limpeza do cache do seu navegador. Para isso, basta acionar o 
+                            atalho <i>Ctrl + Shift + Del.</i></p>
+                
+                <h1 id="02">Disponibilização dos dados</h1>
+
+                    <h2 id="0201">Webservice - Serviços de mapa</h2>
+
+                        <p> <strong>Webservice</strong> é o método utilizado para transferir dados através de URL/links entre diferentes plataformas. Os 
+                            serviços web do GeoSampa estão disponíveis em dois formatos: WMS (Web Map Service) e WFS (Web Feature Service).</p>
+
+                        <p> <strong>WMS</strong> é um serviço de imagem que serve principalmente como georreferência, não sendo possível nenhuma edição ou 
+                            cruzamento espacial.</p>
+
+                        <p> O serviço <strong>WFS</strong> disponibiliza o acesso e manipulação dos dados geográficos a partir de vetores, permitindo 
+                            operações espaciais.</p>
+
+                        <p> O GeoSampa, por meio de seus serviços online (WMS e WFS), possibilita que os usuários acessem os dados disponíveis em ambientes 
+                            fora do Mapa Digital da Cidade.</p>
+
+                        <p> Para acessar os dados do GeoSampa por meio de serviço on-line, utilize os links abaixo:</p>
+                        
+                        <div class="table-responsive">
+                        
+                            <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Tipo de serviço</th>
+                                            <th>Descrição</th>
+                                            <th>Link</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>WMS - Camadas</td>
+                                            <td>Serviço WMS para as camadas do GeoSampa</td>
+                                            <td><a href="http://wms.GeoSampa.prodam/geoserver/geoportal/wms" target="_blank">
+                                                http://wms.GeoSampa.prodam/geoserver/geoportal/wms</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>WMS - Mapas Base</td>
+                                            <td>Serviço WMS para os mosaicos de ortofotos e levantamentos aéreos (como o SARA Brasil 1930 e VASP Cruzeiro 
+                                                1954)</td>
+                                            <td><a href="http://raster.GeoSampa.prodam/geoserver/geoportal/wms" target="_blank">
+                                                http://raster.GeoSampa.prodam/geoserver/geoportal/wms</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>WFS - Camadas</td>
+                                            <td>Serviço WFS para as camadas do GeoSampa</td>
+                                            <td><a href="http://wfs.GeoSampa.prodam/geoserver/geoportal/wfs" target="_blank">
+                                                http://wfs.GeoSampa.prodam/geoserver/geoportal/wfs</a></td>
+                                        </tr>
+                                    </tbody>
+                            </table>
+
+                        </div>
+
+                    <h2 id = "0202">Download de arquivos</h2>
+                        
+                        <p> O conteúdo do GeoSampa que está disponível para download se apresenta em diversos formatos. Para baixar os dados de uma 
+                            camada, clique no botão <strong>Saiba mais sobre a camada</strong> <img src=imagens/02020001_botao-saiba-mais.png 
+                            alt="02020001" class="icone-inline"> e, depois, no botão <img src=imagens/02020002_botao-download.png alt="02020002"
+                            class="icone-inline"></p>
+
+                        <img src=imagens/02020003_tela-download-camada.png alt="02020003" class="img-conteudo">
+
+                        <p> Será aberta uma caixa de diálogo apresentando as opções de formatos disponível para download. Para fazer o download, basta 
+                            clicar no botão <img src=imagens/02020004_botao-download-extensoes.png alt="02020004" img class="icone-inline" > ao lado do 
+                            formato escolhido.</p>
+
+                        <img src=imagens/02020005_tela-formatos-download.png alt="02020005" class="img-conteudo">
+
+                        <p> Em alguns casos, por conta do tamanho dos arquivos, os dados disponíveis para download de algumas camadas são particionados 
+                            por distrito. É o caso, por exemplo, das camadas 'Edificações 2D' e 'Lotes'. </p>
+
+                        <img src=imagens/02020006_tela-download-distritos.png alt="02020006" class="img-conteudo">
+
+                        <p> O GeoSampa trabalha com arquivos em diversos formatos, variando de acordo com a natureza e a forma de construção dos dados.
+                            O quadro a seguir lista os formatos disponíveis no GeoSampa (para download e/ou upload):</p>
+
+                        <table width="200" cellspacing="1" cellpadding="1" border="1">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>PDF*</strong></td>
+                                            <td>Portable Document Format: arquivo para visualização, sem possibilidade de edição.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>DXF*</strong></td>
+                                            <td>Drawing Exchange Format: arquivo vetorial, em código aberto, usado para compartilhamento universal em 
+                                                formato CAD. No GeoSampa é usado para disponibilizar o mapeamento altimétrico e planialtimétrico do Mapa 
+                                                Digital da Cidade (MDC). Os arquivos estão divididos por folhas do Sistema Cartográfico Metropolitano 
+                                                (SCM), representadas como quadrículas no mapa. Os dados disponíveis na projeção em que foram construídos: 
+                                                SAD69 (EPSG 5533).</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>SHP</strong></td>
+                                            <td>Shapefile: formato popular de arquivo contendo dados geoespaciais em forma de vetor e usado por Sistemas 
+                                                de Informações Geográficas.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>KMZ*</strong></td>
+                                            <td>Keyhole Markup Zipped: linguagem baseada em XML e serve para visualização mapas em 2D e navegadores 
+                                                terrestres em 3D. É o padrão utilizado pelo Google Earth.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>XLS | CSV*</strong></td>
+                                            <td>Excel spreadsheet | Comma-Separated Values: Planilhas de dados e séries históricas.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>GPKG</strong></td>
+                                            <td>GeoPackage: formato de dados abertos, não proprietário, baseado em padrões para sistema de informações 
+                                                geográficas e implementado como um banco de dados.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>JPEG | JPG*</strong></td>
+                                            <td>Joint Photographic Experts Group: formato de imagem em arquivo aberto, comprimido para redução do tamanho. 
+                                                Geralmente é acompanhado de arquivo .aux com a informações de localização geográfica para ser utilizado em 
+                                                softwares de geoprocessamento.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>GeoJSON</strong></td>
+                                            <td>GeoJSON é um formato de intercâmbio de dados geoespaciais padrão aberto que representa feições geográficas 
+                                                simples e seus atributos não espaciais. Baseado em JavaScript Object Notation (JSON), GeoJSON é um formato 
+                                                para codificar uma variedade de estruturas de dados geográficos.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>GPX**</strong></td>
+                                            <td>GPS Exchange Format é um formato aberto, baseado em XML que armazena dados geográficos em pontos e linhas.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>TopoJSON**</strong></td>
+                                            <td>Extensão do GeoJSON que reconhece topologia e codifica arcos compartilhados para reduzir o tamanho do 
+                                                arquivo, especialmente para bordas de polígonos.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>IGC Files**</strong></td>
+                                            <td>São registros digitais padronizados de voos, contendo dados de GPS, altitude e tempo.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <p> <strong>*</strong> Disponíveis apenas para download de algumas camadas.</p>
+                                <p> <strong>**</strong> Disponíveis apenas para upload.</p>
+
+                    <h2 id = "0203">Download com integração</h2>
+
+                        <p> Algumas camadas possibilitam o download de arquivos não espaciais, como plantas, imagens, e documentos textuais. Ainda assim,
+                            nestes casos, existe uma camada vetorial. Para fazer o download, basta clicar sobre uma das feições da camada vetorial associada 
+                            e, em seguida, sobre o botão disponível na parte de baixo da janela de informação da feição. Na figura a seguir, está 
+                            demonstrado o exemplo para a camada <strong>MDT 2017 - Articulação</strong>. Ao clicar sobre uma das quadrículas, você pode obter as 
+                            informações associadas àquela feição e baixar os dados do levantamento LiDAR daquela porção específica do território da 
+                            cidade.</p>
+
+                        <img src=imagens/02030001_tela-download-integracao.png alt="02030001" class="img-conteudo">
+
+                <h1 id="03">Conceitos</h1>
+
+                    <h2 id="0301">Dados abertos</h2>
+
+                        <p> Os dados em formato aberto permitem que qualquer cidadão utilize variados softwares para adaptá-los às suas necessidades. Além 
+                            disso, estas informações contribuem para a transparência e o processo participativo, bem como para a criação de novas 
+                            aplicações colaborativas.</p>
+
+                    <h2 id="0302">Metadados</h2>
+
+                        <p> Os metadados são as informações sobre cada uma das camadas e têm como objetivo proporcionar a correta utilização e 
+                            interpretação dos dados, indicando, por exemplo, denominação, descrição do conteúdo, escala, tipo de arquivo, órgão 
+                            responsável, periodicidade de atualização, entre outras informações. </p>
+
+                        <p> Clicando no botão 
+                            <a href = "https://metadados.geosampa.prefeitura.sp.gov.br/geonetwork/srv/por/catalog.search#/home">Metadados</a>, localizado 
+                            no canto superior direito do GeoSampa, você acessa o Catálogo de Metadados classificado por tópicos. Para algumas bases, também 
+                            está disponível o dicionário de dados disponível em planilha.</p>
+
+                        <img class="img-conteudo" src=imagens/03020001_tela-metadados.png alt="03020001" class="img-conteudo">
+
+                        <p> Ao acessar o <strong>Catálogo de Metadados</strong>, você encontrará uma barra de pesquisa. Nela, você pode pesquisar pelo nome de uma 
+                            camada ou por um termo. Você pode também fazer a consulta a partir dos <strong>Tópicos</strong>, marcadores criados para agrupar camadas 
+                            com tema semelhante.</p>
+                        
+                        <p> Ao acessar o metadado de uma camada, você encontrará, no mínimo, os seguintes itens preenchidos:</p>
+                            
+                            <ul>
+                                <li><strong>Título</strong> é o nome da camada. É o mesmo nome que ela recebe no <strong>Menu de Camadas</strong>, no GeoSampa.</li>
+                                <li><strong>Resumo</strong> é a descrição breve do conteúdo, propósito e características da camada.</li>
+                                <li><strong>Datas</strong> contam com informações temporais relevantes, como criação, publicação e última atualização.</li>
+                                <li><strong>Contatos do recurso</strong> identificam pessoas ou organizações responsáveis pelo recurso, incluindo meios de 
+                                    contato.</li>
+                                <li><strong>Frequência de atualização</strong> trata da periodicidade com que a camada é atualizada (ex.: anual, mensal, 
+                                    contínua).</li>
+                                <li><strong>Tipo de representação</strong> é a forma de representação espacial dos dados, como vetor, raster, grade ou 
+                                    texto.</li>
+                                <li><strong>Sistema de referência e coordenadas</strong> trata do SRC com que a camada foi criada.</li>
+                                <li><strong>Linhagem</strong> diz respeito ao histórico de origem, métodos de produção, processamento e qualidade 
+                                    geoespacial.</li>
+                            </ul>
+
+                    <h2 id="0303">Dicionário de dados</h2>
+
+                        <p> Um dicionário de dados é um descritivo das informações contidas nas camadas e conjunto de dados, fornecendo definições sobre 
+                            os elementos da base de dados, como variáveis, formatos, valores permitidos, origens e relacionamentos.</p>
+
+                        <p> Ele funciona como um glossário técnico, garantindo que todos os envolvidos tenham uma compreensão uniforme dos dados, 
+                            facilitando a comunicação, a padronização do uso de variáveis e a criação de relatórios e sistemas mais confiáveis e 
+                            reprodutíveis.</p>
+
+                        <p> Este recurso está sendo disponibilizado gradualmente para as camadas.</p>
+
+                    <h2 id="0304">Escala</h2>
+
+                        <p>Escala cartográfica é a proporção de redução da área da paisagem real para sua representação no mapa. Existem dois tipos de 
+                            escalas cartográficas: numérica e gráfica.</p>
+
+                            <ul>
+                                
+                                <li><strong>Escala numérica</strong> expressa o valor em números. No caso de uma escala 1:501.405 (um para 501.405): 
+                                    significa que um centímetro no mapa corresponde a 501.405 centímetros (equivalente a 5,01 quilômetros) na paisagem 
+                                    real;</li>
+                                <li><strong>Escala gráfica</strong> indica a correspondência entre um segmento e uma distância na paisagem real, podendo 
+                                    ser expressa, no GeoSampa, em metros ou quilômetros.
+                                <img class="img-conteudo" src=imagens/03040001_tela-escala.png alt="03040001">
+                                </li>
+
+                            </ul> 
+
+                    <h2 id="0305">Coordenadas</h2>
+
+                        <p> Coordenada plana é uma forma de localizar um ponto exato em uma superfície plana usando dois números, chamados de par ordenado 
+                            (X, Y), a partir do sistema métrico. A caixa de coordenadas apresenta as coordenadas X e Y por onde o cursor do mouse estiver 
+                            passando no mapa. Clicando na caixa de coordenadas, uma caixa de diálogo será aberta. </p>
+
+                        <img src=imagens/03050001_tela-coordenadas.png alt="03050001" class="img-conteudo">
+
+                        <img src=imagens/03050002_tela-configuracoes-coordenadas.png alt="03050002" class="img-conteudo">
+
+                        <p> Nela, é possível alterar o sistema de projeção da caixa de coordenadas, bem como o número de casas decimais apresentadas.</p>
+                        
+                <h1 id="04">Tela inicial e navegação</h1>
+
+                    <p> Nesta seção, serão apresentados os itens que compõem a tela inicial do GeoSampa, seus menus, mecanismos de busca e camadas.</p>
+
+                    <h2 id="0401">Mapa Digital da Cidade - MDC</h2>
+                        
+                        <p>Esta é a primeira tela de visualização do GeoSampa. A seguir, serão descritas as alternativas de navegação e ferramentas 
+                            disponíveis.</p>
+
+                        <img src=imagens/04010001_tela-mdc.png alt="04010001" class="img-conteudo" >
+
+                    <h2 id="0402">Tipos de cursor</h2>
+
+                        <p> O cursor assume diferentes formas dependendo da sua função.</p>
+
+                        <p> Abaixo seus formatos com as funcionalidades possíveis em cada um com exemplos práticos de aplicabilidade.</p>
+
+                        <div class="row g-3">
+
+                            <!-- CARD 1 -->
+                            <div class="col-md-6">
+                                <div class="card card-cursor h-100">
+                                    
+                                    <div class="card-body d-flex align-items-start gap-3">
+                                        
+                                        <div class="icone-wrapper">
+                                            <img src=imagens/04020001_cursor-seta.png alt="04020001">
+                                        </div>
+
+                                        <div>
+                                            <h5 class="card-title mb-1">Seta</h5>
+                                                
+                                                <p class="card-text">
+                                                    
+                                                    Permite a navegação pelo mapa e obter informação sobre as feições.
+                                                
+                                                </p>
+                                        
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            
+                            </div>
+
+                            <!-- CARD 2 -->
+                            <div class="col-md-6">
+                                <div class="card card-cursor h-100">
+                                    
+                                    <div class="card-body d-flex align-items-start gap-3">
+                                        
+                                        <div class="icone-wrapper">
+                                            <img src=imagens/04020002_cursor-mira.png alt="04020002">
+                                        </div>
+
+                                        <div>
+                                            <h5 class="card-title mb-1">Mira</h5>
+                                                
+                                                <p class="card-text">
+                                                    
+                                                    Permite desenhar linhas, polígono e pontos no mapa, o desenho de polígono para buscar de informações 
+                                                    em lote.
+                                                
+                                                </p>
+                                        
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            
+                            </div>
+
+                            <!-- CARD 3 -->
+                            <div class="col-md-6">
+                                <div class="card card-cursor h-100">
+                                    
+                                    <div class="card-body d-flex align-items-start gap-3">
+                                        
+                                        <div class="icone-wrapper">
+                                            <img src=imagens/04020003_cursor-mira-bolha.png alt="04020003">
+                                        </div>
+
+                                        <div>
+                                            <h5 class="card-title mb-1">Mira com bolha</h5>
+                                                
+                                                <p class="card-text">
+                                                    
+                                                    Permite executar medições de área e de linha no mapa, e desenhar polígonos para obtenção de dados das 
+                                                    camadas ativas.
+                                                
+                                                </p>
+                                        
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            
+                            </div>
+
+                            <!-- CARD 4 -->
+                            <div class="col-md-6">
+                                <div class="card card-cursor h-100">
+                                    
+                                    <div class="card-body d-flex align-items-start gap-3">
+                                        
+                                        <div class="icone-wrapper">
+                                            <img src=imagens/04020004_cursor-dedo.png alt="04020004">
+                                        </div>
+
+                                        <div>
+                                            <h5 class="card-title mb-1">Dedo</h5>
+                                                
+                                                <p class="card-text">
+                                                    
+                                                    Permite escolher funcionalidades, como as ferramentas de consulta, desenho, zoom, medição e integração, 
+                                                    e escolha e ativação das camadas.
+                                                
+                                                </p>
+                                        
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            
+                            </div>
+
+                            <!-- CARD 5 -->
+                            <div class="col-md-6">
+                                <div class="card card-cursor h-100">
+                                    
+                                    <div class="card-body d-flex align-items-start gap-3">
+                                        
+                                        <div class="icone-wrapper">
+                                            <img src=imagens/04020005_cursor-texto.png alt="04020005">
+                                        </div>
+
+                                        <div>
+                                            <h5 class="card-title mb-1">Cursor de texto</h5>
+                                                
+                                                <p class="card-text">
+                                                    
+                                                    Habilitado quando requer preenchimento de um campo.
+                                                
+                                                </p>
+                                        
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            
+                            </div>
+
+                        </div>
+                    
+                    <h2 id="0403"> Busca</h2>
+
+                        <h3 id="040301">Aspectos gerais</h3>
+
+                            <p>A pesquisa no GeoSampa está concentrada em uma única ferramenta, localizada no canto superior esquerdo da tela.</p>
+
+                            <img src=imagens/04030101_busca-aspectos-gerais.png alt="04030101" class="img-conteudo">
+
+                            <p> A busca textual foi desenvolvida com pesquisa fonética, de modo que o motor de busca codifica os nomes por sons (fonemas) e 
+                                não apenas pela grafia exata. Assim, é possível encontrar registros mesmo com erros ortográficos, variações ou acentuação 
+                                incorreta para logradouros, distritos, subprefeituras e outros.</p>
+
+                            <img src=imagens/04030102_busca-resultados.png alt="04030102" class="img-conteudo">
+
+                            <p> Ao clicar nas Configurações das opções de busca, você encontrará todas as opções de pesquisa disponíveis. As pesquisas 
+                                disponíveis para buscar no mapa do GeoSampa estão listadas abaixo:</p>
+
+                            <img src=imagens/04030103_busca-opcao-pesquisa.png alt="04030103" class="img-conteudo" >
+
+                            <p> Quando você pesquisar um termo na barra de pesquisa, o motor de busca promoverá a pesquisa em todas as bases listadas 
+                                acima. Por padrão, sempre estarão habilitadas todas as opções de pesquisa. Você pode desabilitar as que julgar 
+                                necessário.</p>
+
+                            <img src=imagens/04030104_busca-opcao-pesquisa-selecao.png alt="04030104" class="img-conteudo" >
+
+                            <p> Você também pode criar uma ordem de hierarquia para a pesquisa, habilitando a opção <strong>Parar se encontrado</strong> 
+                                na consulta que deve ser priorizada. Assim, o motor de busca iniciará a pesquisa na primeira base habilitada - no caso da 
+                                imagem acima, <strong>Logradouros - Município de São Paulo</strong>. Como a opção <strong>Parar se encontrado</strong> 
+                                está marcada, caso o motor de busca encontre algum resultado na base de logradouros, a busca será interrompida. No entanto, 
+                                caso nenhum resultado seja encontrado, será feita busca por subprefeitura. Como a opção <strong>Parar se encontrado</strong>
+                                está desmarcada, mesmo que algum resultado seja localizado na base de subprefeituras, o motor de busca fará a busca por 
+                                distrito. Ao final, serão apresentados todos os resultados encontrados. Você também pode habilitar a função 
+                                <strong>Permitir múltiplos resultados de pesquisa no mapa ao mesmo tempo</strong>. Assim, o motor de busca pesquisará o 
+                                termo em todas as pesquisas disponíveis e apresentará todos os retornos na visualização do mapa para que você possa 
+                                escolher qual resultado te atende melhor.</p>
+
+                        <h3 id="040302">Logradouros</h3>
+
+                            <p> Nestes casos, a busca é realizada em base de logradouros oficiais e não oficiais do município.</p>
+
+                            <p> A pesquisa nesta camada pode se dar pelo nome do logradouro (p.ex. Avenida Paulista, Rua São Bento, Praça da Sé, etc.) ou 
+                                pelo Código do Logradouro (CODLOG). A pesquisa pelo nome do logradouro é fonética e permite encontrar os registros desejados 
+                                mesmo com erros ortográficos, variações ou acentuação incorreta.</p>
+                            
+                            <p> Na pesquisa por endereço, quando é inserido apenas o nome do logradouro, a pesquisa retornará  uma linha, que representa 
+                                toda a extensão do logradouro.</p>
+
+                            <img src=imagens/04030201_busca-logradouro.png alt="04030201" class="img-conteudo">
+
+                            <p> Se a pesquisa for feita buscando pelo nome do logradouro e o número de porta, retornará como um ponto no mapa. </p>
+
+                            <img src=imagens/04030202_busca-logradouro-numero.png alt="04030202" class="img-conteudo">
+
+                            <p> Se o ponto estiver dentro da quadra fiscal, significa que há um lote fiscal com o mesmo número de porta que foi pesquisado. 
+                                Caso retorne um ponto no meio do leito do logradouro, significa que não foi encontrado um lote fiscal com o mesmo número de 
+                                porta pesquisado, retornando ponto no eixo da via que representa o local mais próximo ao número pesquisado.</p>
+
+                            <img src=imagens/04030203_busca-logradouro-numero-sem-correspondencia.png alt="04030203" class="img-conteudo">
+
+                        <h3 id="040303">Setor.Quadra.Lote</h3>
+
+                            <p> Pesquisa nas camadas de Setor, Quadra e Lote Fiscais. A camada <strong>Setor</strong> representa a maior unidade territorial do 
+                                cadastro fiscal do município. A camada <strong>Quadra</strong> representa a segunda unidade territorial do cadastro imobiliário 
+                                fiscal do município. A camada <strong>Lotes</strong> é a representação cartográfica oficial do Cadastro Imobiliário Fiscal da 
+                                Secretaria da Fazenda (SF) e a menor unidade de representação do cadastro fiscal.</p>
+
+                            <p> A pesquisa pode ser feita: </p>
+
+                                <ul> 
+                                    
+                                    <li> Apenas pelo número do Setor, composto por 3 dígitos, que variam entre 001 e 310  (p.ex. 005)
+                                        <br>
+                                        <img src=imagens/04030301_busca-setor.png alt="04030301" class="img-conteudo">
+                                        <br>
+                                    </li>
+                                
+                                    <li> Pelos números de Setor e Quadra, composto por 6 dígitos, sendo que a pesquisa por Setor.Quadra deve utilizar o 
+                                        ponto como separador numérico (p.ex. 123.123)
+                                        <br>
+                                        <img src=imagens/04030302_busca-setor-quadra.png alt="04030302" class="img-conteudo" >
+                                        <br>
+                                    </li>
+                                
+                                    <li> Pelos números de Setor, Quadra e Lote, composto por 10 dígitos, sendo que a pesquisa por Setor.Quadra.Lote deve 
+                                        utilizar o ponto como separador numérico (p.ex. 123.123.0001)
+                                        <br>
+                                        <img src=imagens/04030303_busca-setor-quadra-lote.png alt="04030303" class="img-conteudo" >
+                                        <br>
+                                    </li>
+
+                                </ul>
+
+                        <h3 id="040304">Coordenadas</h3>
+
+                            <h4 id="04030401"> Latitude / longitude - decimais</h4>
+
+                                <p> As coordenadas decimais são a forma mais simples e moderna de indicar um ponto exato na Terra, usando apenas números 
+                                    decimais (com vírgula ou ponto) em vez de graus, minutos e segundos. </p>
+
+                                <p> Para essa pesquisa, você deve usar o ponto separador como separador numérico e a vírgula como separador entre a latitude e 
+                                    longitude (p.ex. -23.548173247112523, -46.63345328512641).</p>
+
+                                <img src=imagens/04030401_busca-coordenadas-decimais.png alt="04030401" class="img-conteudo">
+
+                            <h4 id="04030402"> Latitude / longitude - graus, minutos e segundos</h4>
+                        
+                            <p> Coordenadas em Graus, Minutos e Segundos (GMS) localizam qualquer ponto na Terra dividindo o globo em 360°.</p>
+
+                            <p> Para essa pesquisa, você deve usar os símbolos <strong>º</strong> para marcador de grau, <strong>'</strong> para marcador de 
+                                minuto, e <strong>''</strong> para marcador de segundo. Considerando que serão pesquisados pontos na cidade de São Paulo, 
+                                deve ser usada a letra <strong>S</strong> maiúscula (representando 'South') ao fim da coordenada da longitude e a letra 
+                                <strong>W</strong> maiúscula (representando 'West') ao fim da coordenada da latitude (p.ex. 23°33'01.4"S, 46°38'02.2"W).</p>
+
+                            <img src=imagens/04030402_busca-coordenadas-gsm.png alt="04030402" class="img-conteudo">
+
+                            <h4 id="04030403"> Coordenadas planas</h4>
+                                
+                            <p> Coordenada plana é uma forma de localizar um ponto exato em uma superfície plana usando dois números, chamados de par ordenado 
+                                (X,Y), a partir do sistema métrico.</p> 
+                                
+                            <p> Para essa pesquisa, utilize o ponto como separador numérico e a vírgula como separador entre as coordenadas X e Y (p.ex. 
+                                333220.79268776, 7394600.1388575).</p>
+                            
+                            <img src=imagens/04030403_busca-coordenadas-planas.png alt="04030403" class="img-conteudo">
+                        
+                        <h3 id="040305">Pesquisa de endereços do Nominatim (OSM)</h3>
+
+                            <p> Nominatim é o motor de busca oficial por trás do <a href="https://www.openstreetmap.org/#map=4/-15.13/-53.19">OpenStreetMap 
+                                (OSM)</a>. Ele funciona como um "tradutor" que transforma endereços ou nomes de locais em coordenadas geográficas.</p>
+
+                            <p> O OpenStreetMap é um projeto colaborativo internacional que cria e disponibiliza um mapa-múndi livre e editável, funcionando 
+                                de forma semelhante à Wikipédia. Construído por voluntários, utiliza dados de GPS, imagens de satélite e conhecimento local 
+                                para fornecer informações geográficas gratuitas sob licença aberta.</p>
+
+                    <h2 id="0404">Menu de ferramentas</h2>
+                        
+                        <p> À esquerda da tela está o menu de ferramentas, onde você encontrará funcionalidades que auxiliam na navegação e na consulta 
+                            dos dados disponíveis.</p>
+                
+                        <div class="accordion" id="accordionFerramentas">
+
+                            <!-- ITEM 1 -->
+                            <div class="accordion-item">
+                            
+                                <h2 class="accordion-header" id="040401">
+                                
+                                    <button class="accordion-button collapsed d-flex align-items-center gap-2"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#collapse-zoom">
+
+                                            <img src=imagens/04040101_botao-zoom.png alt="04040101" class="icone-accordion">
+                                            <span>Zoom mais / Zoom menos</span>
+
+                                    </button>
+                            
+                                </h2>
+
+                                <div id="collapse-zoom" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+
+                                    <div class="accordion-body">
+                                        Aproxima ou afasta. Ao alterar o zoom, a escala também é alterada. Cada camada possui um limite de escala de 
+                                        visualização, adequado à sua legibilidade. Caso necessário, deve-se aumentar a escala (Zoom +) até que a camada 
+                                        fique habilitada no menu de camadas, pois só é possível ligar a camada se o zoom estiver adequado à sua 
+                                        visualização. Por exemplo, a camada <strong>Lote</strong> pode ser visualizada, exclusivamente, em escala abaixo 
+                                        de 1:5.000.
+                                    </div>
+                                
+                                </div>
+                        
+                            </div>
+
+                            <!-- ITEM 2 -->
+                            <div class="accordion-item">
+                                
+                                    <h2 class="accordion-header" id="040402">
+                                        
+                                        <button class="accordion-button collapsed d-flex align-items-center gap-2"
+                                                type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#collapse-rotacao">
+
+                                                <img src=imagens/04040201_botao-rotacao.png alt="04040201" class="icone-accordion">
+                                                <span>Rotação</span>
+
+                                        </button>
+
+                                    </h2>
+
+                                    <div id="collapse-rotacao" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionFerramentas">
+
+                                        <div class="accordion-body">
+                                                
+                                            <p> Seguindo as convenções cartográficas, o mapa do GeoSampa sempre se inicia com a indicação de Norte para 
+                                                cima. A ferramenta <strong>Rotação</strong> permite que o usuário rotacione a visualização do mapa para 
+                                                melhor visualização dos dados.</p> 
+                                                
+                                            <p> Em caso de uso no computador, segure as teclas <i>Alt + Shift</i> e, com o botão esquerdo do mouse, faça 
+                                                a rotação no mapa. Clicando novamente no botão, a visualização retorna a seu estado inicial.</p>
+                                                    
+                                            <p>Em caso de uso no celular, clique no mapa do GeoSampa com dois dedos e faça a rotação.</p>
+
+                                        </div>
+
+                                    </div>
+
+                            </div>
+
+                            <!-- ITEM 3 -->
+                            <div class="accordion-item">
+                                
+                                <h2 class="accordion-header" id="040403">
+                                    
+                                    <button class="accordion-button collapsed d-flex align-items-center gap-2"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#collapse-medicao">
+
+                                            <img src=imagens/04040301_botao-medicao.png alt="04040301" class="icone-accordion">
+                                            <span>Medição</span>
+
+                                    </button>
+                                
+                                </h2>
+
+                                <div id="collapse-medicao" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+
+                                        <div class="accordion-body">
+                                            <p> Ao clicar nesse botão, será aberta caixa de opções para realizar medições cartográficas no mapa. Você 
+                                                poderá escolher medir uma área <img src=imagens/04040302_botao-medicao-area.png alt="botao-medicao-area" 
+                                                class="icone-inline"> ou a distância <img src=imagens/04040303_botao-medicao-distancia.png 
+                                                alt="botao-medicao-distancia" class="icone-inline"> entre pontos. Clicando no botão 
+                                                <img src=imagens/04040304_botao-medicao-config.png alt="botao-configuracoes-medicao" class="icone-inline">, 
+                                                será aberta caixa de diálogo em que você pode alterar as unidades de medida (metros ou jardas/milhas) e 
+                                                habilitar a exibição dos comprimentos de cada segmento de medição; e do comprimento e área total da 
+                                                medição realizada.</p> 
+                                            
+                                            <p> Para medir uma área, clique no botão <img src=imagens/04040302_botao-medicao-area.png 
+                                                alt="botao-medicao-area" class="icone-inline">. Para definir os vértices da área a ser calculada, clique 
+                                                com o botão esquerdo do mouse nos pontos desejados. Para definir o último vértice do polígono e finalizar 
+                                                o desenho, clique com o botão direito do mouse.</p>
+                                                
+                                            <p> Ao trocar o cursor para seta e clicar no polígono, uma janela será habilitada com as seguintes 
+                                                informações:</p>
+
+                                            <img src=imagens/04040305_tela-caixa-dialogo-medicao-poligono.png alt="04040305" class="img-conteudo">
+
+                                            <p> Para fazer o cálculo de uma distância linear, clique no botão 
+                                                <img src=imagens/04040303_botao-medicao-distancia.png alt="botao-medicao-distancia" class="icone-inline">. 
+                                                Para definir os vértices das linhas a serem medidas, clique com o botão esquerdo do mouse nos pontos 
+                                                desejados. Para definir o último vértice da linha e finalizar o desenho, clique com o botão direito do
+                                                mouse.</p>
+
+                                            <p> Ao trocar o cursor para seta e clicar na linha, uma janela será habilitada com as seguintes informações:</p>
+
+                                            <img src=imagens/04040306_tela-caixa-dialogo-medicao-linha.png alt="04040306" class="img-conteudo">
+
+                                        </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="040404">
+                                    <button class="accordion-button collapsed d-flex align-items-center gap-2"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#collapse-desenho">
+
+                                            <img src=imagens/04040401_botao-desenho.png alt="04040401" class="icone-accordion">
+                                            <span>Desenho</span>
+
+                                    </button>
+                                </h2>
+
+                                <div id="collapse-desenho" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+
+                                    <div class="accordion-body">
+                                        
+                                        <p> A aba <strong>Desenho</strong> conta com ferramentas que permitem que o usuário inclua formas e 
+                                            textos no mapa. Também estão disponíveis as opções de baixar as inserções feitas, realizar ajuste de cores e 
+                                            excluir desenhos.</p>
+                                
+                                        <p> Ao clicar na aba <strong>Desenho</strong> <img src=imagens/04040401_botao-desenho.png 
+                                            alt="04040401" class="icone-inline"> serão exibidas as ferramentas de desenho disponíveis.
+
+                                        <p> A ferramenta <strong>Desenhar Polígono</strong> <img src=imagens/04040402_botao-desenho-poligono.png 
+                                            alt="04040402" class="icone-inline"> permite a inclusão de um polígono no mapa. Para definir os vértices do 
+                                            novo polígono, clique com o botão esquerdo do mouse nos pontos desejados. Para definir o último vértice do 
+                                            polígono e finalizar o desenho, clique com o botão direito do mouse.</p>
+
+                                        <p> Ao trocar o cursor para seta e clicar no polígono, uma janela será habilitada com as 
+                                            seguintes informações:</p>
+
+                                        <img src=imagens/04040403_tela-controles-desenho-poligono.png alt="04040403" class="img-conteudo"> 
+
+                                        <p> A ferramenta <strong>Desenhar Linha</strong> <img src=imagens/04040404_botao-desenho-linha.png alt="04040404" 
+                                            class="icone-inline"> permite a inclusão de uma linha no mapa. Para definir os vértices da nova linha, clique 
+                                            com o botão esquerdo do mouse nos pontos desejados. Para definir o último vértice da linha e finalizar o desenho,
+                                            clique com o botão direito do mouse.</p>
+
+                                        <p> Ao trocar o cursor para seta e clicar na linha, uma janela será habilitada com as seguintes 
+                                            informações:</p>
+
+                                        <img src=imagens/04040405_tela-controles-desenho-linha.png alt="04040405" class="img-conteudo">
+
+                                        <p> A ferramenta <strong>Desenhar Ponto</strong> <img src=imagens/04040406_botao-desenho-ponto.png alt="04040406" 
+                                            class="icone-inline"> permite a inclusão de um ponto no mapa. Para definir sua localização, clique com o botão 
+                                            esquerdo do mouse no local desejado.</p>
+
+                                        <p>Ao trocar o cursor para seta e clicar no ponto, uma janela será habilitada com as seguintes informações:</p>
+
+                                        <img src=imagens/04040407_tela-controles-desenho-ponto.png alt="04040407" class="img-conteudo">
+
+                                        <p> A ferramenta <strong>Círculo</strong> <img src=imagens/04040408_botao-desenho-circulo.png alt="04040408" 
+                                            class="icone-inline"> permite a criação de um círculo no mapa. Para definir sua localização, clique com o botão 
+                                            esquerdo do mouse para definir o centro do círculo; afaste o cursor do ponto clicado para definir o raio do 
+                                            círculo; e clique novamente com o botão esquerdo do mouse para finalizar o desenho.</p>
+
+                                        <p>Ao trocar o cursor para seta e clicar no círculo, uma janela será habilitada com as seguintes informações:</p>
+
+                                        <img src=imagens/04040409_tela-controles-desenho-circulo.png alt="04040409" class="img-conteudo">
+
+                                        <p> A ferramenta <strong>Desenhar Texto</strong> <img src=imagens/04040410_botao-desenho-texto.png alt="04040410" 
+                                            class="icone-inline"> permite a inclusão de um texto ao mapa. O primeiro passo é definir o texto (que deve ser 
+                                            escrito no campo 'Texto') e sua aparência (demais campos) no menu lateral. Em seguida, para definir sua 
+                                            localização, clique com o botão esquerdo do mouse no local desejado. </p>
+                                        
+                                        <img src=imagens/04040411_tela-controle-desenhos-texto.png alt="04040411" class="img-conteudo">
+
+                                        <img src=imagens/04040412_tela-controle-desenhos-texto.png alt="04040412" class="img-conteudo">
+
+                                        <p>As três últimas ferramentas são para a edição dos desenhos e textos adicionados.</p>
+
+                                        <p> A ferramenta <strong>Exportar Anotações</strong> <img src=imagens/04040413_botao-desenho-exportar-anotacoes.png
+                                            alt="04040413" class="icone-inline"> permite a exportação todos os desenhos adicionados ao mapa em arquivos 
+                                            abertos, nos formatos GeoJSON, GPX (apenas pontos e linhas) e KML.</p>
+
+                                        <p> É possível definir o nome do arquivo e seu formato. Vale reforçar que apenas o formato KML oferece suporte a 
+                                            dados de estilo e rótulos de texto. </p>
+                                        
+                                        <img src=imagens/04040414_tela-desenho-exportar-anotacoes.png alt="04040414" class="img-conteudo">
+
+                                        <p> Para alterar características da aparência e conteúdo das anotações, utilize a ferramenta 
+                                            <strong>Modificar Anotações</strong> <img src=imagens/04040415_botao-desenho-modificar-anotacoes.png 
+                                            alt="04040415" class="icone-inline">. Depois de clicar no ícone indicado, selecione a anotação que será editada;
+                                            e altere os parâmetros indicados no menu lateral. </p>
+
+                                        <img src=imagens/04040416_tela-desenho-modificar-anotacoes.png alt="04040416" class="img-conteudo">
+
+                                        <p> O botão Excluir todas as Anotações <img src=imagens/04040417_botao-desenho-excluir-anotacoes.png alt="04040417" 
+                                            class="icone-inline"> restaura a visualização a sua condição original e exclui todas as anotações criadas.</p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ITEM 4-->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="040405">
+                                    <button class="accordion-button collapsed d-flex align-items-center gap-2"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#collapse-consultas">
+
+                                            <img src=imagens/04040501_botao-consultas.png alt="botao-consultas" class="icone-accordion">
+                                            <span>Consultas</span>
+
+                                    </button>
+                                
+                                </h2>
+
+                                <div id="collapse-consultas" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionFerramentas">
+
+                                    <div class="accordion-body">
+                                        <p>A seção <strong>Consultas</strong> <img src=imagens/04040501_botao-consultas.png alt="04040501" 
+                                            class="icone-inline"> conta com ferramentas que permitem que o usuário acesse os dados de feições presentes 
+                                            no mapa.</p>
+                                        
+                                        <p> O botão <strong>Consultar feições clicando no mapa</strong> <img 
+                                            src=imagens/04040502_botao-consultas-clique.png alt="04040502" class="icone-inline"> permite que a consulta 
+                                            seja feita em um ponto escolhido pelo usuário. Assim, você pode obter os dados de uma feição específica 
+                                            clicando sobre ela, seja ela pertencente a uma camada ou criada por você com o controle de alterações.</p>
+
+                                        <p> Ao clicar sobre uma geometria, será habilitada uma caixa de diálogo com os dados disponíveis para a feição.</p>
+
+                                        <img src=imagens/04040503_tela-consultas-clique.png alt="04040503" class="img-conteudo">
+
+                                        <p> O botão <strong>Consultar feições desenhando um polígono</strong> <img 
+                                            src=imagens/04040504_botao-consultas-poligono.png alt="botao-consulta-poligono" 
+                                            class="icone-inline"> permite que a consulta seja feita a partir de um polígono desenhado pelo usuário. Assim, 
+                                            você obtém os dados de todas as feições das camadas habilitadas que interseccionam o polígono desenhado.</p>
+                                        
+                                        <p> Para definir os vértices do novo polígono, clique com o botão esquerdo do mouse nos pontos desejados. Para 
+                                            definir o último vértice do polígono e finalizar o desenho, clique com o botão direito do mouse. Em seguida, 
+                                            será habilitada a lista de resultados.</p>
+
+                                        <p> Clicando sobre o número de identificação na lista de resultados, você pode visualizar as informações 
+                                            disponíveis para a feição.</p>
+
+                                        <img src=imagens/04040505_tela-consultas-poligono.png alt="04040505" class="img-conteudo">
+
+                                        <p> Para retornar à lista de resultados, clique sobre o botão <strong>Voltar para a lista de resultados</strong>.</p>
+
+                                        <img src=imagens/04040506_tela-consultas-voltar.png alt="04040506" class="img-conteudo">
+
+                                        <p> O botão <strong>Consultar feições por um buffer</strong> <img 
+                                            src=imagens/04040507_botao-consultas-buffer.png alt="botao-consulta-buffer" class="icone-inline"> permite que 
+                                            a consulta seja feita a partir de um buffer (área de influência radial) criado pelo usuário. Assim, você obtém 
+                                            os dados de todas as feições das camadas habilitadas que interseccionam o buffer desenhado.</p>
+
+                                        <p> Para definir sua localização, clique com o botão esquerdo do mouse para definir o centro do círculo. Uma caixa 
+                                            de diálogo será habilitada:</p>
+
+                                        <img src=imagens/04040508_tela-consultas-buffer.png alt="04040508" class="img-conteudo">
+
+                                        <p> Digite o tamanho do buffer a ser criado; escolha a unidade de medida (metros, quilômetros ou milhas) e clique 
+                                            em <strong>Buscar</strong>. Será habilitada lista de resultados.</p>
+
+                                        <img src=imagens/04040509_tela-consultas-buffer-resultados.png alt="04040509" class="img-conteudo">
+
+                                        <p> Clicando sobre o número de identificação na lista de resultados, você pode visualizar as informações 
+                                            disponíveis para a feição.</p>
+
+                                        <img src=imagens/04040510_tela-consultas-buffer-resultados-informacoes.png alt="04040510" class="img-conteudo">
+
+                                        <p> Para retornar à lista de resultados, clique sobre o botão <strong>Voltar para a lista de resultados</strong>.</p>
+
+                                    </div>
+
+                                </div>
+                            
+                            </div>
+
+                            <!-- ITEM 5 -->
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="040406">
+                                    <button class="accordion-button collapsed d-flex align-items-center gap-2"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#collapse-rastrear-localizacao">
+
+                                            <img src=imagens/04040601_botao-localizacao.png alt="04040601" class="icone-accordion">
+                                            <span>Rastrear localização</span>
+
+                                    </button>
+                                
+                                </h2>
+
+                                <div id="collapse-rastrear-localizacao" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionFerramentas">
+
+                                    <div class="accordion-body">
+                                        <p> Com essa ferramenta, você pode mapear no GeoSampa um percurso real a partir de sua localização na cidade de 
+                                            São Paulo.</p>
+
+                                        <p> Ao clicar nessa funcionalidade, você escolhe se deseja manter sua tela ativa enquanto faz seu percurso, pode 
+                                            escolher a opção de que seja desenhada sua trilha no mapa, mostrando seu percurso e escolhe a precisão dessa 
+                                            trilha, que pode variar em baixa (50 metros), média (20 metros) e alta precisão
+                                            (10 metros). </p>
+
+                                        <p> Depois de selecionar a opções, clique em Iniciar rastreamento para que seu percurso comece a ser desenhado na 
+                                            tela.</p>
+
+                                        <p> Esse dado pode ser exportado ao final do percurso. Este dado não será armazenado caso a página seja atualizada.</p>
+                                        
+                                    </div>
+                                
+                                </div>
+
+                            </div>
+
+                            <!-- ITEM 6 -->
+
+                            <div class="accordion-item">
+                                
+                                <h2 class="accordion-header" id="040407">
+                                    
+                                    <button class="accordion-button collapsed d-flex align-items-center gap-2"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#collapse-integracoes">
+
+                                            <img src=imagens/04040701_botao-integracoes.png alt="04040701" class="icone-accordion">
+                                            <span>Integrações</span>
+
+                                    </button>
+
+                                </h2>
+
+                                <div id="collapse-integracoes" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionFerramentas">
+
+                                    <div class="accordion-body">
+                                        
+                                        <p> O GeoSampa permite integrações a outras bases de dados da Prefeitura. Ao clicar no menu de integrações, será 
+                                            aberta uma janela com todos os sistemas disponíveis.  </p>
+
+                                        <img src=imagens/04040702_tela-menu-integracoes.png alt="04040702" class="img-conteudo">
+
+                                        <p> Em geral, todas as consultas de integrações funcionam de modo semelhante: a busca na base retorna dados nas abas 
+                                            de <strong>Dados da Integração</strong> e <strong>Dados da camada</strong> de referência, contendo atributos 
+                                            associados à busca. Os dados da aba <strong>Integração</strong> são extraídos exclusivamente das consultas aos 
+                                            bancos de dados. Já na aba Dados da camada, os resultados são extraídos exclusivamente das consultas da camada. 
+                                            Ao consultar uma rua pelo Código de Logradouro no banco do CADLOG, por exemplo: pode acontecer de a consulta 
+                                            retornar dados na aba <strong>Dados da Integração</strong> mas não na aba <strong>Dados da camada</strong>, 
+                                            indicando que o logradouro está cadastrado no banco de dados do CADLOG, mas não foi desenhado no mapa. Além disso, 
+                                            no canto superior direito da caixa de diálogo, é possível fazer o download dos resultados da busca nos formatos 
+                                            CSV, GeoJSON, KML e SHP. Caso não haja registros para o termo pesquisado na base dos sistemas buscados, será 
+                                            informado que não foram encontrados dados para a integração. </p>
+
+                                        <img src=imagens/04040703_tela-menu-integracoes.png alt="04040703" class="img-conteudo">
+
+                                        <h3> CADLOG - Cadastro de Logradouros</h3>
+
+                                            <p> O CADLOG conta com informações atualizadas sobre logradouros cadastrados no banco de dados do Cadastro de 
+                                                Logradouros, provido pela Secretaria Municipal de Fazenda. Para fazer a pesquisa, preencha o campo do 
+                                                Código do Logradouro e clique no botão <strong>Consultar Integração</strong>. </p>
+
+                                            <img src=imagens/04040704_caixa-dialogo-integracoes.png alt="04040704" class="img-conteudo">
+
+                                            <p> Como resultado, será aberta uma caixa de informações, contendo os dados de integração:  denominação atual 
+                                                do logradouro, status, CEP, número inicial e número final e lado da faixa. </p>
+
+                                        <h3> CADTEC - Cadastro Técnico de Logradouros</h3>
+                                            
+                                            <p> O CADTEC conta com informações históricas e atuais sobre logradouros da cidade de São Paulo. Para fazer a 
+                                                pesquisa, preencha o campo do Código do Logradouro e clique no botão <strong>Consultar Integração</strong>. 
+                                                Será habilitada uma janela com dados sobre: a denominação, a origem da informação, a data de consolidação 
+                                                do nome da via e o decreto ou lei de oficialização do logradouro. O campo 'Tipo' indica se a informação 
+                                                apresentada é a vigente ('ATUAL') ou antiga ('ANTERIOR'). 
+
+                                        <h3> CEDI - Cadastro de Edificações</h3>
+                                            
+                                            <p> O CEDI conta com dados de cadastro e histórico sobre as edificações da cidade de São Paulo. Para fazer a 
+                                                pesquisa, preencha os campos Setor, Quadra e Lote e clique no botão <strong>Consultar Integração</strong>. 
+                                                Será habilitada uma janela com dados de: número do contribuinte, área de terreno, a área construída, a 
+                                                testada e a situação da edificação (indica se a edificação é 'regular' ou 'irregular', de acordo com o 
+                                                cadastro do CEDI), Observação da Consolidação, Tipo de Emissão e Data da Consolidação (data que a situação 
+                                                da edificação foi alimentada no CEDI). </p>
+
+                                        <h3> CIT - Cadastro de Imóveis Tombados</h3>
+
+                                            <p> O cadastro de imóveis conta com dados de imóveis tombados da cidade de São Paulo. Para fazer a pesquisa, 
+                                                preencha os campos Setor, Quadra e Lote e clique no botão <strong>Consultar Integração</strong>. Será 
+                                                habilitada uma janela com dados de: nome fantasia, nível de preservação, observações, endereço, data de 
+                                                cadastro e indicativo de cancelamento (se houver). </p>
+
+                                        <h3> Filiação de Lotes</h3>
+
+                                            <p> Retorna o histórico de filiação de um lote fiscal do município.</p>
+                                            
+                                        <h3> IPTU - Imposto Predial e Territorial Urbano</h3>
+
+                                            <p> O cadastro do IPTU conta com dados de contribuintes da cidade de São Paulo. Para fazer a pesquisa, preencha 
+                                                os campos Setor, Quadra e Lote e clique no botão <strong>Consultar Integração</strong>. Será habilitada uma 
+                                                janela com os dados de: nome do proprietário, codlog, endereço, tipo de uso e áreas de terreno e construída. </p>
+
+                                        <h3> Outorga Onerosa</h3>
+
+                                            <p> Você pode visualizar dados do cálculo da Outorga Onerosa do Direito de Construir na cidade de São Paulo. 
+                                                Para fazer a pesquisa, preencha os campos Setor, Quadra e Lote e clique no botão <strong>Consultar 
+                                                Integração</strong>. Será habilitada uma janela com dados de: área excedente licenciada, categoria de uso 
+                                                da edificação licenciada, endereço da edificação licenciada, número do processo de licenciamento e tipo de 
+                                                uso da área excedente. A consulta ao banco da Outorga Onerosa traz informações sobre este instrumento que 
+                                                devem ser complementados com as informações disponíveis na camada 'Outorga Onerosa'.</p>
+
+                                        <h3> SIGAC - Sistema de Gerenciamento de Áreas Contaminadas</h3>
+
+                                            <p> O SICAC conta com dados de áreas contaminadas na cidade de São Paulo. Para fazer a pesquisa, preencha os 
+                                                campos Setor, Quadra e Lote e clique no botão <strong>Consultar Integração</strong>. Será habilitada uma 
+                                                janela. Nela serão apresentados dados de contaminante, se a contaminação está ativa, se há restrições de 
+                                                uso, situação e tipo da etapa (informação sobre em que momento está a análise da área contaminada). </p>
+
+                                        <h3> SISACOE - Sistema de Administração do Código de Obras e Edificações</h3>
+
+                                            <p> O SISACOE conta com dados de solicitações para parte dos processos de licenciamento de edificações na 
+                                                cidade de São Paulo. Para fazer a pesquisa, preencha os campos Setor, Quadra e Lote e clique no botão 
+                                                <strong>Consultar Integração</strong>. Será habilitada uma janela com dados da área construída licenciada, 
+                                                área de terreno de acordo com a escritura, área de terreno real, assunto da solicitação, número do 
+                                                processo SEI vinculado e SQL do lote. </p>
+
+                                        <h3> SISZON - Consulta ao Sistema de Zoneamento</h3>
+
+                                            <p> O SISZON conta com dados do histórico de zonas de uso para os lotes fiscais da cidade de São Paulo. Para 
+                                                fazer a pesquisa, preencha os campos Setor, Quadra, Lote e Condomínio e clique no botão <strong>Consultar 
+                                                Integração</strong>. Será aberta uma nova guia no navegador, direcionando para a 
+                                                <a href=https://consultasiszon.prefeitura.sp.gov.br> página do sistema</a> já preenchidas as informações 
+                                                do lote solicitado. No Siszon é possível encontrar o histórico do zoneamento dos lotes e da classificação 
+                                                viária do seu CODLOG, sendo identificada a legislação pertinente, os códigos de SQL relacionados 
+                                                (pai e filhos) e o status de cada informação. </p>
+
+                                        <h3> SLC-e - Sistema de Licenciamento Eletrônico </h3>
+
+                                            <p> O SLC-e conta com dados de solicitações para parte dos processos de licenciamento de edificações 
+                                                na cidade de São Paulo. Para fazer a pesquisa, preencha os campos Setor, Quadra e Lote e clique no botão 
+                                                <strong>Consultar Integração</strong>. Será habilitada uma janela com dados de: ano de emissão do 
+                                                documento, data de emissão, número de identificação do alvará, SQL envolvidos, tipo de alvará, número do 
+                                                processo e situação da solicitação.  </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                <h1 id="05">Camadas e Compartilhamento</h1>
+
+                    <p> À direita estão localizados os ícones relacionados ao conteúdo de camadas e às formas de compartilhamento das informações do 
+                        sistema. </p>
+
+                    <h2 id="0501">Mapa de Fundo</h2>
+
+                        <p> Os 'Mapas de fundo' são camadas rasterizadas (matriz de pixels com coordenadas geográficas) disponíveis para ilustrar e 
+                            orientar a visualização das informações do município. É possível escolher entre:</p>
+
+                            <ul> 
+
+                                <li> A visualização das informações político-administrativas (composto pelas camadas dos limites administrativos do Município, 
+                                Subprefeituras e Distritos, das quadras viárias, dos logradouros, e cursos d'água);</li>
+                                <li> A Ortofoto de levantamento do ano de 2020;</li>
+                                <li> O mapa de fundo Open Street Map (OSM).</li>
+
+                            </ul>
+
+                        <p> Em todas as visualizações é possível controlar opacidade, saturação e coloração (tons de cinza). Entretanto, os mapas de fundo 
+                            não podem ser sobrepostos entre si.</p>
+
+                    <h2 id="0502">Camadas</h2>
+
+                        <h3 id="050200"> Aspectos gerais</h3>
+
+                            <p> Em <strong>Camadas</strong> está o cerne do conteúdo do GeoSampa. Nas centenas de camadas disponíveis, há arquivos nos formatos 
+                                raster (imageamentos) ou vetoriais (feições em pontos, linhas ou polígonos com informações associadas). Além disso, a natureza e a 
+                                origem das informações são variadas, assim como são diferentes os tipos de representação (cartografia temática ou sistemática) 
+                                e, ainda, os tipos de informação associadas. Há, ainda, camadas com a possibilidade de downloads integrados de imagens ou 
+                                documentos. Todas as informações associadas estão descritas nos metadados de cada camada. Para acessar o metadado específico 
+                                de cada camada, basta clicar no botão ao lado do nome da camada e será aberta a janela com a ficha resumo do metadado e a 
+                                descrição do dado.</p>
+
+                            <p> A visualização das diversas camadas está classificada em oito categorias temáticas, que estão abaixo descritas com suas 
+                                definições:</p>
+
+                            <div class="accordion" id="accordionFerramentas">
+
+                                <!-- ITEM 1 -->
+                                <div class="accordion-item">
+                                
+                                    <h2 class="accordion-header" id="tema-limites-territoriais">
+                                    
+                                        <button class="accordion-button collapsed d-flex align-items-center gap-2"
+                                                type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#collapse-tema-limites-territoriais">
+
+                                                <span>Limites territoriais</span>
+
+                                        </button>
+                                
+                                    </h2>
+
+                                    <div id="collapse-tema-limites-territoriais" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+
+                                        <div class="accordion-body">
+                                            Compreende dados sobre as divisões territoriais, englobando tanto divisões administrativas (subprefeituras, 
+                                            distritos) quanto subdivisões criadas no âmbito de pesquisas, como área de ponderação e setor censitário 
+                                            (Censo IBGE), zona origem-destino (Metrô).
+
+                                        </div>
+                                    
+                                    </div>
+                            
+                                </div>
+
+                                <!-- ITEM 2 -->
+                                <div class="accordion-item">
+                                
+                                    <h2 class="accordion-header" id="tema-imagens-aereas-sensoriamento">
+                                    
+                                        <button class="accordion-button collapsed d-flex align-items-center gap-2"
+                                                type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#collapse-tema-imagens-aereas-sensoriamento">
+
+                                                <span>Imagens aéreas e Sensoriamento</span>
+
+                                        </button>
+                                
+                                    </h2>
+
+                                    <div id="collapse-tema-imagens-aereas-sensoriamento" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+
+                                        <div class="accordion-body">
+                                            Compreende dados sobre imagens de satélite, coberturas aerofotográficas, ortofotos, cartas topográficas, entre 
+                                            outros.
+
+                                        </div>
+                                    
+                                    </div>
+                            
+                                </div>
+
+                                <!-- ITEM 3 -->
+                                <div class="accordion-item">
+                                
+                                    <h2 class="accordion-header" id="tema-meio-fisico">
+                                    
+                                        <button class="accordion-button collapsed d-flex align-items-center gap-2"
+                                                type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#collapse-tema-meio-fisico">
+
+                                                <span>Meio Físico</span>
+
+                                        </button>
+                                
+                                    </h2>
+
+                                    <div id="collapse-tema-meio-fisico" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+
+                                        <div class="accordion-body">
+                                            Compreende dados sobre aspectos da superfície e subsuperfície do território da cidade - solo, subsolo e águas -, 
+                                            incluindo recursos minerais, topografia, tipos e aptidões do solo, entre outros aspectos.
+
+                                        </div>
+                                    
+                                    </div>
+                            
+                                </div>
+
+                                <!-- ITEM 4 -->
+                                <div class="accordion-item">
+                                
+                                    <h2 class="accordion-header" id="tema-meio-ambiente">
+                                    
+                                        <button class="accordion-button collapsed d-flex align-items-center gap-2"
+                                                type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#collapse-tema-meio-ambiente">
+
+                                                <span>Meio Ambiente</span>
+
+                                        </button>
+                                
+                                    </h2>
+
+                                    <div id="collapse-tema-meio-ambiente" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+
+                                        <div class="accordion-body">
+                                            Compreende dados sobre recursos naturais e o conjunto de influências e interações entre o homem e tais recursos: 
+                                            vegetação, fauna, flora, reservas naturais, paisagem, clima; impacto das atividades sociais, econômicas e culturais 
+                                            exercidas pelo homem; proteção e conservação; prestação de serviços de saneamento (abastecimento de água, 
+                                            esgotamento sanitário, manejo de resíduos sólidos, manejo de efluentes líquidos, armazenamento e tratamento de 
+                                            resíduos); indicadores agroambientais (uso de agrotóxicos e fertilizantes, agricultura orgânica); avaliação de 
+                                            impactos ambientais; monitoramento ambiental (poluição, ecossistemas); unidades de conservação da natureza e terras 
+                                            indígenas; gestão e política ambientais, entre outros aspectos. 
+
+                                        </div>
+                                    
+                                    </div>
+                            
+                                </div>
+
+                                <!-- ITEM 5 -->
+                                <div class="accordion-item">
+                                
+                                    <h2 class="accordion-header" id="tema-ambiente-construido">
+                                    
+                                        <button class="accordion-button collapsed d-flex align-items-center gap-2"
+                                                type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#collapse-tema-ambiente-construido">
+
+                                                <span>Ambiente Construído</span>
+
+                                        </button>
+                                
+                                    </h2>
+
+                                    <div id="collapse-tema-ambiente-construido" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+
+                                        <div class="accordion-body">
+                                            Compreende dados sobre intervenção humana no território destinada a organizar e viabilizar as atividades 
+                                            econômicas, sociais e culturais da população. 
+
+                                        </div>
+                                    
+                                    </div>
+                            
+                                </div>
+
+                                <!-- ITEM 6 -->
+                                <div class="accordion-item">
+                                
+                                    <h2 class="accordion-header" id="tema-dados-socioeconomicos-equipamentos">
+                                    
+                                        <button class="accordion-button collapsed d-flex align-items-center gap-2"
+                                                type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#collapse-tema-dados-socioeconomicos-equipamentos">
+
+                                                <span>Dados socioeconômicos e Equipamentos</span>
+
+                                        </button>
+                                
+                                    </h2>
+
+                                    <div id="collapse-tema-dados-socioeconomicos-equipamentos" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+
+                                        <div class="accordion-body">
+                                            Compreende dados sobre características gerais da população e sua vida social e política: componentes demográficas, 
+                                            estatísticas vitais, grupos populacionais específicos, trabalho, educação, saúde, habitação, justiça e segurança, 
+                                            proteção social, administração municipal, participação social e política, equipamentos públicos, entre outros.
+
+                                        </div>
+                                    
+                                    </div>
+                            
+                                </div>
+
+                                <!-- ITEM 7 -->
+                                <div class="accordion-item">
+                                
+                                    <h2 class="accordion-header" id="tema-planejamento-urbano">
+                                    
+                                        <button class="accordion-button collapsed d-flex align-items-center gap-2"
+                                                type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#collapse-tema-planejamento-urbano">
+
+                                                <span>Planejamento Urbano</span>
+
+                                        </button>
+                                
+                                    </h2>
+
+                                    <div id="collapse-tema-planejamento-urbano" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+
+                                        <div class="accordion-body">
+                                            Compreende dados sobre planejamento urbano: Plano Diretor, Zoneamento (Lei de Parcelamento, Uso e Ocupação do 
+                                            Solo), e qualquer outro instrumento de planejamento urbano, tais como Operações Urbanas, Áreas de Intervenção 
+                                            Urbanas (AIUs), entre outros aspectos. 
+
+                                        </div>
+                                    
+                                    </div>
+                            
+                                </div>
+
+                                <!-- ITEM 8 -->
+                                <div class="accordion-item">
+                                
+                                    <h2 class="accordion-header" id="tema-licenciamento">
+                                    
+                                        <button class="accordion-button collapsed d-flex align-items-center gap-2"
+                                                type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#collapse-tema-licenciamento">
+
+                                                <span>Licenciamento</span>
+
+                                        </button>
+                                
+                                    </h2>
+
+                                    <div id="collapse-tema-licenciamento" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+
+                                        <div class="accordion-body">
+                                            Compreende os dados relacionados a dois tipos de licenciamento: o licenciamento ambiental (com dados das 
+                                            Avaliações de Impactos Ambiental, Áreas Contaminadas e Manejo Arbóreo e intervenções em Área de Preservação 
+                                            Permanente) e licenciamento edilício (como dados de alvarás de construção, melhoramentos viários e deliberações 
+                                            para uso do solo diferenciais).  
+
+                                        </div>
+                                    
+                                    </div>
+                            
+                                </div>
+
+                            </div>
+
+                            <p> Por fim, no Menu de camadas há a classe 'Minhas Camadas', que varia de acordo com a navegação do usuário, conforme a 
+                                visualização abaixo. Aqui ficam registradas as medições, anotações e desenhos feitos no mapa. Esses registros são momentâneos 
+                                e são apagados toda vez que a página for atualizada.</p>
+
+                            <img src=imagens/05020001_tela-minhas-camadas.png alt="05020001" class="img-conteudo">
+
+                        <h3 id="050201"> Busca</h3>
+
+                            <p> A navegação no menu de camadas pode ser facilitada pela caixa de busca, logo acima da árvore de camadas, na qual é 
+                                possível realizar a busca fonética das camadas de interesse - quer dizer, erros ortográficos ou aproximações são toleradas 
+                                pela busca, que apresenta resultados semelhantes. A visualização da ordem das pastas pode ser alterada entre 
+                                'Ordem Padrão' (nas classes pré-definidas) ou 'Ordem Alfabética'. </p>
+
+                            <img src=imagens/05020101_tela-camadas-busca.png alt="05020101" class="img-conteudo">
+
+                        <h3 id="050202"> Botão Saiba mais sobre a camada <img src=imagens/02020001_botao-saiba-mais.png alt="02020001" 
+                            class="icone-inline"></h3>
+
+                            <p> Para localizar informações resumidas sobre as camadas, o acesso aos seus metadados, ao download das feições e aos serviços 
+                                web, basta clicar no botão <img src=imagens/02020001_botao-saiba-mais.png alt="02020001" class="icone-inline"> localizado ao 
+                                lado do nome de cada camada.</p>
+
+                            <img src=imagens/05020201_tela-botao-i.png alt="05020201" class="img-conteudo">
+                        
+                            <p> A janela aberta apresenta:</p>
+
+                                <ul> 
+                                    <li> O resumo do conteúdo da camada;</li>
+                                    <li> As palavras-chave com os eixos temáticos em que elas estão inseridas;</li>
+                                    <li> O autor do dado;</li>
+                                    <li> O distribuidor do dado;</li>
+                                    <li> A data de atualização do dado;</li>
+                                    <li> O link para o serviço web WMS;</li>
+                                    <li> O link para a ficha do Metadado da camada;</li>
+                                    <li> A caixa para download da camada;</li>
+                                    <li> Um atalho para a caixa de impressão do projeto atual.
+                                    <img src=imagens/05020202_tela-detalhes-camada.png alt="05020202" class="img-conteudo"></li>
+                                </ul>   
+
+                        <h3 id="050203"> Filtros </h3>
+
+                            <p> A ferramenta <strong>Filtros</strong> <img src=imagens/05020301_botao-filtro.png alt="05020301" class="icone-inline"> 
+                                permite filtrar elementos de uma camada a partir do conteúdo de seus atributos. É possível, por exemplo, pesquisar um 
+                                distrito pelo nome e/ou área. Ao clicar no ícone ao lado do nome da camada cujos registros serão filtrados (no caso, 
+                                camada <strong>Distrito</strong>). Será habilitada uma janela como esta.</p>
+
+                            <img src=imagens/05020302_tela-filtros.png alt="05020302" class="img-conteudo">
+
+                            <p> A caixa de filtros contém algumas condições a serem preenchidas pelo usuário para que sua busca seja direcionada. As 
+                                condições são relacionadas às camadas selecionadas e aos seguintes operadores: 'igual a', 'diferente de', 'maior que', 
+                                'maior ou igual a', 'menor que', 'menor ou igual a', 'entre', 'é nulo'. Estes podem ser adicionados para buscas em textos 
+                                ou em parâmetros numéricos e sua aplicação também é pré-definida pelo usuário, que escolhe se quer atender as buscas em 
+                                'todas', 'alguma' ou 'nenhuma' das condições definidas. Com isso, são diversas as combinações de filtros que podem ser 
+                                aplicadas separado ou conjuntamente entre as camadas para a confecção de um projeto de visualização personalizado para 
+                                as necessidades do usuário.</p>
+
+                            <p> Pode-se, por exemplo, filtrar a geometria a partir de seu nome exato. Para isto, selecione o campo que conta com os dados 
+                                dos nomes da camada (no caso, <strong>nm_distrito_municipal</strong>); selecione a opção <strong>Igual a</strong>; e insira 
+                                o nome da geometria que se deseja filtrar (no caso, 'SÉ').</p>
+
+                            <img src=imagens/05020303_tela-filtros-igual-a.png alt="05020303" class="img-conteudo">
+
+                            <p> Clicando em <strong>Aplicar</strong>, o mapa irá enquadrar a(s) geometria(s) selecionadas. Caso a camada seja ligada, apenas a(s) 
+                                geometria(s) filtradas serão reproduzidas.</p>
+
+                            <img src=imagens/05020304_tela-filtros-igual-a-resultados.png alt="05020304" class="img-conteudo">
+
+                            <p> Outra opção é filtrar nomes diferentes do especificado. Basta que, ao invés de <strong>Igual a</strong>, seja selecionada a
+                                opção <strong>Diferente de</strong>. Neste caso, foram filtradas todas as geometrias com nome diferente de 'SE'.</p>
+
+                            <img src=imagens/05020305_tela-filtros-diferente.png alt="05020305" class="img-conteudo">
+
+                            <p> Estes foram os resultados obtidos:</p>
+
+                            <img src=imagens/05020306_tela-filtros-diferente-resultados.png alt="05020306" class="img-conteudo">
+
+                            <p> Neste caso, são apresentados todos os distritos de São Paulo, exceto a Sé.</p>
+
+                            <p> Pode-se, também, filtrar a geometria a partir de parte de seu nome. Neste caso, por exemplo, foram filtrados todos os 
+                                distritos com nome que contém a letra 'R' em sua grafia, independentemente da localização desta letra na palavra.</p>
+
+                            <img src=imagens/05020307_tela-filtros-letra-r.png alt="05020307" class="img-conteudo">
+
+                            <p> Existem algumas regras para esse tipo de busca:</p>
+
+                                <ul> 
+                                    <li> A pesquisa diferencia letras minúsculas e maiúsculas;</li>
+                                    <li> Use <strong>*</strong> como coringa de qualquer sequência de caracteres;</li>
+                                    <li> Use <strong>.</strong> como coringa de um único caractere;</li>
+                                    <li> Use <strong>!</strong> para escapar de caracteres especiais.</li>
+                                </ul>
+
+                            <p> Portanto, para pesquisar distritos com nome que contém a letra <strong>R</strong> em sua grafia, é necessário fazer a 
+                                pesquisa com <strong>*R*</strong>. Se a pesquisa for feita com <strong>R*</strong>, irá retornar apenas os distritos cujo 
+                                nome começa com a letra <strong>R</strong>. Se for feita com <strong>*R</strong>, irá retornar apenas os distritos cujo 
+                                nome termina com a letra <strong>R</strong>.</p>
+
+                            <p> O <strong>.</strong> é usado da mesma forma, mas considera apenas um caractere antes ou depois do texto inserido. Portanto, 
+                                se a pesquisa for feita com <strong>S.</strong>, irá retornar o distrito da Sé. Se for feita com <strong>.APA</strong>, 
+                                irá retornar o distrito da Lapa. Se for feita com <strong>.AUD.</strong>, irá retornar o distrito da Saúde.</p>
+
+                            <p> É possível, ainda, fazer filtros a partir de campos numéricos. Basta selecionar o campo, eleger a regra de comparação 
+                                ('Igual a', 'Maior que', 'Menor que', entre outras) e inserir o número de referência. Neste caso, por exemplo, foram 
+                                filtrados todos os distritos que contam com área maior que 150 quilômetros quadrados. </p>
+
+                            <img src=imagens/05020308_tela-filtros-area-maior.png alt="05020308" class="img-conteudo">
+
+                            <p> E estes foram os resultados obtidos:</p>
+
+                            <img src=imagens/05020309_tela-filtros-area-maior-resultados.png alt="05020309" class="img-conteudo">
+
+                            <p> É possível combinar mais de um filtro. Neste caso, estamos filtrando todas as geometrias com área superior a 150 
+                                quilômetros quadrados e que contam com 'H' em seu nome. </p>
+
+                            <img src=imagens/05020310_tela-filtros-area-maior-e-letra-h.png alt="05020310" class="img-conteudo">
+
+                            <p> E estes foram os resultados obtidos:</p>
+
+                            <img src=imagens/05020311_tela-filtros-area-maior-e-letra-h-resultados.png alt="05020311" class="img-conteudo">
+
+                            <p> Você também pode filtrar as geometrias que respeitam pelo menos uma das condições criadas. Basta alterar a opção da caixa 
+                                de seleção superior: ao invés de 'todas', selecione 'alguma'. Neste caso, estamos filtrando todas as geometrias que possuem 
+                                área superior a 150 quilômetros quadrados ou com nome que conta com a letra H. </p>
+
+                            <img src=imagens/05020312_tela-filtros-area-maior-ou-letra-h.png alt="05020312" class="img-conteudo">
+
+                            <p> E estes foram os resultados obtidos:</p>
+
+                            <img src=imagens/05020313_tela-filtros-area-maior-ou-letra-h-resultados.png alt="05020313" class="img-conteudo">
+
+                            <p> Por fim, é possível filtrar as geometrias que não respeitam as condições criadas. Basta alterar a opção da caixa de seleção 
+                                superior: ao invés de 'todas' ou 'alguma', selecione 'nenhuma'. Neste caso, estamos filtrando todas as geometrias que não 
+                                possuem área superior a 150 quilômetros quadrados e nome que não conta com a letra H. </p>
+
+                            <img src=imagens/05020314_tela-filtros-nem-area-maior-nem-letra-h.png alt="05020314" class="img-conteudo">
+
+                            <p> E estes foram alguns os resultados obtidos:</p>
+
+                            <img src=imagens/05020315_tela-filtros-nem-area-maior-nem-letra-h-resultados.png alt="05020315" class="img-conteudo">
+
+                        <h3 id="050204"> Adicionar camada</h3>
+
+                            <p> Para ampliar as possibilidades de cruzamentos de informações e análises resultantes é possível importar e visualizar 
+                                camadas externas, que não estão disponíveis no GeoSampa. Para isso, clique no botão <strong>Camadas</strong> 
+                                <img src=imagens/05020401_botao-camadas.png alt="05020401" class="icone-inline"> do menu à direita e, em seguida, em 
+                                <strong>Adicionar camada</strong>. As novas camadas podem se originar de um serviço web; ou de arquivos geoespaciais 
+                                armazenados em sua própria máquina. </p>
+                            
+                            <img src=imagens/05020402_tela-adicionar-camada.png alt="05020402" class="img-conteudo">
+
+                            <img src=imagens/05020403_tela-adicionar-camada.png alt="05020403" class="img-conteudo">
+
+                            <p> Para inserir uma camada de um serviço web, clique no botão <strong>Adicionar camada da web</strong>. Será habilitada uma caixa 
+                                de diálogo:</p>
+
+                            <img src=imagens/05020404_tela-adicionar-servico-web.png alt="05020404" class="img-conteudo">
+
+                            <p> Escolha o serviço que clique em <strong>Conectar</strong>. Serão listadas as camadas disponíveis. Para incorporá-las, clique 
+                                em <strong>Adicionar ao mapa</strong>.</p>
+
+                            <p> Em seguida, cole a <i>url</i> do serviço no campo indicado e clique em <strong>Conectar</strong>.</p>
+
+                            <p> Para inserir uma camada a partir de um arquivo armazenado localmente, clique no botão <strong>Enviar dados</strong>. 
+                                Você pode incluir arquivos nas extensões SHP, GPKG, KML, GPX, GeoJSON, TopoJSON e IGC. Basta arrastar os arquivos para a 
+                                caixa indicada ou escolher os arquivos localmente.</p>
+
+                            <img src=imagens/05020405_tela-adicionar-camada-local.png alt="05020405" class="img-conteudo">
+
+                            <p> Os arquivos devem ter até 50MB e estar nos SRC SIRGAS 2000 UTM 23S (EPSG 31983) ou WGS84 (EPSG 4326). Após inseri-los, você 
+                                ainda poderá visualizar seus atributos no GeoSampa. </p>
+
+                            <p> As camadas inseridas pelo usuário (assim como as anotações realizadas) podem ser gerenciadas acessando o menu <strong>Camadas</strong>
+                                <img src=imagens/05020401_botao-camadas.png alt="05020401" class="icone-inline"> e clicando na aba <strong>Minhas camadas</strong>. </p>
+
+                        <h3 id="050205"> Camadas ativas</h3>
+
+                            <p> Além disso, a visualização das camadas selecionadas pelo usuário é encontrada na aba <strong>Camadas Ativas</strong>, onde estão 
+                                localizadas as ferramentas de ajuste de estilo (opacidade, saturação, tons de cinza).</p>
+
+                            <img src=imagens/05020501_tela-camadas-ativas.png alt="05020501" class="img-conteudo">
+
+                        <h3 id="050206"> Desligar todas</h3>
+
+                            <p> Por fim, caso seja necessário reiniciar a árvore de camadas para sua condição inicial, deve-se desligar todas as camadas.</p>
+
+                            <img src=imagens/05020601_tela-desligar-todas.png alt="05020601" class="img-conteudo">
+
+                    <h2 id="0503"> Legendas</h2>
+
+                        <p> A visualização das camadas temáticas com legendas pode ser acessada de duas maneiras: com o clique na segunda opção do Menu 
+                            lateral direto; ou, na própria caixa de camadas, após a seleção das camadas desejadas com a opção <strong>Mostrar legenda
+                            </strong>. São mostradas as legendas de todas das camadas ativas no menu.</p>
+
+                        <img src=imagens/05030001_tela-legendas.png alt="05030001" class="img-conteudo">
+
+                        <img src=imagens/05030002_tela-legendas.png alt="05030002" class="img-conteudo">
+
+                    <h2 id="0504"> Compartilhar</h2>
+
+                        <p> Agora é possível compartilhar um projeto em andamento tal qual ele está no seu navegador. Você pode compartilhar seu mapa do 
+                            GeoSampa clicando no botão <strong>Compartilhar</strong> <img src=imagens/05040001_botao-compartilhar.png alt="05040001"
+                            class="icone-inline"> e uma nova janela será habilitada:</p>
+
+                        <img src=imagens/05040002_tela-compartilhar.png alt="05040002" class="img-conteudo">
+
+                        <p> Você pode escolher entre o link direto e o link curto. Em ambos os casos, quando você ou outra pessoa acessar o link, a 
+                            visualização do mapa (zoom, enquadramento, camadas habilitadas, filtros, etc) será a mesma de quando o link foi criado. 
+                            Desenhos, medições e camadas adicionadas ao mapa não serão carregados com o link.</p>
+
+                    <h2 id="0505"> Exportar / Imprimir</h2>
+
+                        <p> Você pode imprimir o seu mapa de trabalho do GeoSampa. Para isso, clique no botão <strong>Imprimir</strong> <img
+                            src=imagens/05050001_botao_imprimir.png alt="05050001" class="icone-inline"> e uma nova janela será 
+                            habilitada: </p>
+
+                        <img src=imagens/05050002_tela-exportar-imprimir.png alt="05050002" class="img-conteudo">
+
+                        <p> Em seguida, digite o título e o subtítulo do seu mapa, escolha o tamanho da página e a resolução da impressão e defina se o 
+                            mapa conterá legenda - em caso positivo, será necessário escolher sua posição na folha ('Flutuante - esquerda', 
+                            'Fixa - esquerda' ou em 'Página separada'). Se for o caso, habilite a opção para inclusão da barra de escala.</p>
+
+                        <p> Para gerar o mapa, clique em Exportar para PDF.</p>
+
+                <h1 id="06"> Perguntas frequentes</h1>
+
+                    <h2 id="0601"> Como encontrar um número de IPTU (SQL)?</h2>
+
+                            <p> O código SQL (setor-quadra-lote) representa a identificação dos lotes no Cadastro Imobiliário Fiscal da Prefeitura Municipal
+                                de São Paulo. Como indicado na imagem a seguir, o código é composto a partir do número de identificação do setor, quadra e 
+                                lote fiscal.</p>
+
+                            <img src=imagens/06010001_codigo-sql.png alt="060101" class="img-conteudo">
+                                
+                            <p> Este código corresponde ao número do contribuinte e pode ser localizado no boleto de pagamento do IPTU. Também é possível 
+                                identificar o código SQL e outros dados dos lotes fiscais utilizando o GeoSampa.</p>
+
+                            <p> O GeoSampa disponibiliza informações fiscais do lote na camada <strong>Lote</strong>, que é atualizada pela Secretaria da Fazenda. 
+                                Esta camada substitui os antigos 'croquis fiscais', que não são atualizados desde junho de 2019. </p>
+
+                            <p> Para facilitar a utilização do munícipe, as informações de SQL já aparecem concatenadas como código do contribuinte. Basta 
+                                deixar a camada  <strong>Lote</strong> ativa e clicar sobre alguma feição para visualizar as informações disponíveis. Será 
+                                aberta uma caixa com o código de Setor.Quadra.Lote (SSS.QQQ.LLLL) e todas as informações pertencentes a ele nesta camada. </p>
+                            
+                            <img src=imagens/06010002_tela-camada-lote.png alt="060102" class="img-conteudo">
+
+                            <p> Para o caso de lotes com condomínios, ao abrir as informações sobre o lote, o <strong>Código do condomínio</strong> virá 
+                                acompanhado do ícone de integração <img src=imagens/06010003_botao-integracao.png alt="06010003" class="icone-inline">. Ao clicar nele, 
+                                é aberta a aba de integrações com as informações sobre cada unidade condominial e suas respectivas informações. </p>
+
+                            <img src=imagens/06010004_tela-dados-lote.png alt="060104" class="img-conteudo">
+
+                    <h2 id="0602"> Como visualizar os dados LiDAR 3D?</h2>
+
+                            <p> Para visualizar os Modelos Digitais de Superfície e de Terreno, você deve primeiro encontrar as camadas no Menu de Camadas. 
+                                Selecione, por exemplo, a camada <strong>MDT 2017 - Articulação</strong> para visualizar o Modelo Digital de Terreno construído
+                                a partir do levantamento de 2017. </p>
+
+                            <p> O MDT é a representação dos pontos do terreno, enquanto o Modelo Digital de Superfície - MDS compreende as edificações, árvores, 
+                                obras viárias entre outros objetos, na forma nuvem de pontos no mapa digital. Esses dados foram adquiridos com voo com LiDAR 
+                                (Light Detection and Ranging). </p>
+
+                            <p> Se quiser conhecer mais sobre a técnica, consulte os links abaixo: </p>
+
+                            <ul>
+
+                                <li> <a href="https://pt.wikipedia.org/wiki/Lidar"> O que é o LiDAR?</a> </li>
+                                <li> <a href="https://www.youtube.com/watch?v=-ArDzgNT5MQ "> Como fazer o download e visualizar dados LiDAR?</a></li>
+
+                            </ul>
+                            
+                            <p> Após a ativação da camada, você deve clicar na quadrícula da sua área de interesse. Ao clicar, além das informações sobre a 
+                                feição, estará também disponível o botão <strong>Abrir nuvem de pontos</strong> <img src=imagens/06020001_botao-lidar.png 
+                                alt="060201" class="icone-inline">. Ao clicar nele, você será direcionado para a página da visualização do modelo.</p>
+
+                            <img src=imagens/06020002_tela-botao-lidar.png alt="060202" class="img-conteudo">
+
+                            <p> Nesse ambiente, você poderá aproximar a visualização do modelo 3D, bem como fazer medições e análises.</p>
+
+                            <img src=imagens/06020003_tela-visualizacao-lidar.png alt="060203" class="img-conteudo">
+
+                            <p><strong>O visualizador LiDAR possui as seguintes funções:</strong></p>
+
+                            <ul>
+
+                                <li> Com o botão direito você pode mover o espaço analisado dentro da janela de visualização:</li>
+                                
+                                    <div class="video-container">
+
+                                        <iframe src="https://www.youtube.com/embed/eNNWcycTDso" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                                    </div>
+
+                                <li> Com o botão esquerdo você ajusta a orientação da visualização do modelo 3D (rotacionar, inclinar, ajustar o ângulo de visão 
+                                    etc.):</li>
+                                
+                                    <div class="video-container">
+                        
+                                        <iframe src="https://www.youtube.com/embed/G0UTql4x6ss" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                                    </div>
+
+                                <li> Com o botão de rolagem (scroll), você dá zoom no modelo 3D:</li>
+
+                                    <div class="video-container">
+                            
+                                        <iframe src="https://www.youtube.com/embed/EPWOuHub9bw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                                    </div>
+                                
+                                <li> O visualizador LiDAR possui menus de configurações e ferramentas, dispostos na lateral esquerda da tela e que permitem que 
+                                     você aproxime o modelo 3D, calcule altura, entre outras funções. Entre as ferramentas disponíveis nesse menu, você vai 
+                                     encontrar o 'Orçamento de pontos', onde você pode escolher quantos pontos vão estar disponíveis para visualização na nuvem 
+                                     de pontos, bem como ferramentas para medir altura de edificações, distâncias, ângulo, volume etc.:</li>
+                                
+                                    <div class="video-container">
+                        
+                                        <iframe src="https://www.youtube.com/embed/hR_KjoM8e20" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                                    </div>
+                                
+                            </ul>
+
+                <h1 id="07"> Saiba mais sobre o GeoSampa</h1>
+
+                    <h3 id="0701"> Histórico</h3>
+
+                        <p> O Mapa Digital da Cidade (MDC) é um dos pilares fundamentais da infraestrutura de dados geoespaciais do Município de São Paulo, 
+                            representando décadas de evolução tecnológica e institucional na produção, organização e disseminação de informações 
+                            territoriais. </p>
+
+                        <p> A trajetória começa ainda na década de 1970, com iniciativas pioneiras como o GEOLOG (1978), que já buscava digitalizar 
+                            informações cartográficas. Em 2004, um marco importante foi a criação do MDC, resultado de um amplo levantamento 
+                            aerofotogramétrico financiado pelo PMAT e pelo BNDES. Esse trabalho estruturou uma base cartográfica digital cadastral de alta 
+                            precisão — em escala 1:1.000 na área urbana e 1:5.000 na área rural — incluindo ortofotos, modelo digital do terreno, rede 
+                            geodésica com centenas de marcos e uma base detalhada de imóveis e logradouros. Esse conjunto consolidou a modernização da 
+                            cartografia municipal e estabeleceu o alicerce para o avanço do geoprocessamento na cidade.</p>
+
+                        <p> Com a evolução das necessidades de gestão e planejamento urbano, foi instituído o SIG-SP (Sistema de Informações Geográficas 
+                            do Município de São Paulo), regulamentado pelo Decreto nº 57.770/2017. O sistema foi concebido como um ambiente integrador, 
+                            capaz de reunir dados de diversas áreas — urbanísticas, sociais, ambientais, econômicas e administrativas — sem a necessidade 
+                            de centralizar todas as bases em um único repositório. Essa abordagem permitiu a criação de um ecossistema dinâmico, onde 
+                            diferentes sistemas se conectam e compartilham informações georreferenciadas de forma padronizada, seguindo diretrizes do Open 
+                            Geospatial Consortium (OGC).</p>
+
+                    <h3 id="0702"> O GeoSampa</h3>
+
+                        <p> O portal GeoSampa surge, em 2014, como a principal interface pública desse sistema. O portal disponibiliza, de forma aberta e 
+                            acessível, centenas de camadas temáticas - que incluem desde informações cadastrais e zoneamento até equipamentos públicos, 
+                            áreas de risco e a localização de aproximadamente 650 mil árvores do sistema viário. Além da visualização interativa, os 
+                            usuários podem realizar downloads em diversos formatos (como SHP, KMZ, DXF, PDF e JPG), promovendo transparência, apoio à 
+                            pesquisa, inovação e participação social. O crescimento do uso ao longo dos anos — chegando a milhões de acessos anuais — 
+                            demonstra a relevância do portal tanto para a administração pública quanto para a sociedade. </p>
+
+                        <p> A evolução do GeoSampa e do SIG-SP também passou por importantes etapas de modernização tecnológica. Foram realizadas 
+                            atualizações nas versões do GeoServer, ampliação da capacidade dos servidores para lidar com grandes volumes de dados, 
+                            atualização das ferramentas de ETL (extração, transformação e carga de dados) e adoção de novas soluções para o 
+                            desenvolvimento do frontend, com destaque para o uso do Giframework. Todas essas melhorias foram baseadas em tecnologias 
+                            open source, reforçando a estratégia de sustentabilidade, interoperabilidade e independência tecnológica do município. </p>
+
+                        <p> A modernização do frontend, em especial, trouxe ganhos significativos na experiência do usuário, com interfaces mais 
+                            intuitivas, melhor desempenho na navegação e maior capacidade de integração com diferentes serviços e bases de dados e a 
+                            otimização da navegação pelo celular. Isso tornou o acesso às informações geoespaciais mais ágil e eficiente, ampliando o 
+                            alcance do portal e facilitando seu uso por públicos diversos — desde técnicos especializados até cidadãos em geral.</p>
+
+                    <h3 id="0703"> Projeto SIG-SP</h3>
+
+                        <p> O SIG-SP é o instrumento para a produção, manutenção, análise, disseminação e divulgação de informações mapeadas como subsídios para o planejamento, implementação e gestão de 
+                            políticas públicas nas áreas de atuação do governo municipal, priorizando o atendimento ao cidadão. O sistema é constituído, de forma integrada, pelos subsistemas de pessoas, 
+                            procedimentos organizacionais, dados, programas e equipamentos computacionais, abrangendo os dados sociais, culturais, econômicos, financeiros, patrimoniais, urbanísticos, 
+                            administrativos, físico-territoriais, ambientais, geológicos, geográficos, cartográficos e outros de interesse do Município, sendo, essencialmente, um sistema aberto, dinâmico 
+                            e permanente, em constante adequação à realidade urbana. Nesses termos e diante do grande volume de informações disponíveis na administração municipal, a Prefeitura de São Paulo 
+                            optou pela adoção de uma visão integradora. Ao invés da construção de um novo sistema ou mesmo da migração de todos os dados para uma base única, optou-se pela criação de um 
+                            ambiente compartilhado que integre dados geográficos de referência (distritos, quadras fiscais, cartografia, por exemplo) aos sistemas de informações já existentes, permitindo a 
+                            visualização das informações oriundas destes diretamente no mapa. A disponibilização de um volume de informações de aproximadamente 152 terabytes a uma grande quantidade de usuários 
+                            representa um desafio, principalmente, se consideradas as questões como integridade e segurança dos dados. O projeto de construção do SIG-SP vem sendo implantado passo a passo, de 
+                            modo a permitir a disponibilização de ferramentas aos usuários já nos primeiros meses de projeto. Como principais etapas, destacam-se </p>
+                        
+                        <ul>
+
+                            <li> A construção da base corporativa de dados pela organização dos dados cartográficos (Mapa Digital da Cidade), cadastrais (setor, quadra, lotes, logradouros) e temáticos;</li>
+                            <li> A implantação de um sistema de infraestrutura dos dados municipais;</li>
+                            <li> Elaboração do catálogo de metadados;</li>
+                            <li> Integração das bases e sistemas já existentes via conversão de dados espaciais.</li>
+
+                        </ul>
+
+                        <p> Para garantir a sustentabilidade do projeto, foram utilizadas geotecnologias compatíveis com as diretrizes nacionais de dados espaciais e ainda tecnologias GEOSERVER / OpenLayers para a 
+                            construção da Infraestrutura de Dados Espaciais, além do portal de mapas. Trata-se do primeiro projeto de geoprocessamento na Prefeitura de São Paulo a usar tecnologia de software livre. 
+                            Dentre os requisitos técnicos de implantação, vale destacar a definição de padrões de intercâmbio de dados geográficos, compatível com a Open Geospatial Consortium - OGC, concretizando uma 
+                            visão voltada para a transparência, compartilhamento que garanta a operabilidade e o efetivo uso das informações geoespaciais.</p>
+                        
+                <h1 id="08"> Ficha técnica</h1>
+
+                    <p><strong>Coordenadoria de Produção e Análise de Informação (GEOINFO)</strong></p>
+                    <p><strong>Secretaria Municipal de Urbanismo e Licenciamento (SMUL)</strong></p>
+                    <p><strong>Prefeitura Municipal de São Paulo (PMSP)</strong></p>
+                    <br><br>
+                    <p><strong>Elaboração e Execução:</strong></p>
+                    <p>Amanda Mendes de Sousa</p>
+                    <p>Ana Júlia Domingues das Neves Brandão</p>
+                    <p>Márcio de Oliveira Soares</p>
+                    <p>Tiago Andrade Regueira</p>
+
+                    
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>

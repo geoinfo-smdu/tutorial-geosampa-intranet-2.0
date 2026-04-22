@@ -1,0 +1,299 @@
+/* Níveis de texto */
+h1{
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 2.0rem;
+}
+
+h2{
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: #46637e;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+h3{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #46637e;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+h4{
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #46637e;
+    font-weight: 400;
+    font-size: 1.25rem;
+}
+
+h5{
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #46637e;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+p{
+    margin-bottom: 1rem;
+    font-weight: 350;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+/* Imagens e vídeos */
+
+.logo-header {
+    width: 44px;
+    height: 44px;
+}
+
+.img-conteudo {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 12px 0;
+}
+
+.icone-inline {
+    height: 20px;
+    width: auto;
+    vertical-align: middle;
+    margin: 0 4px;
+}
+
+.video-container {
+  width: 100%; 
+  aspect-ratio: 16 / 9;
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================
+   TABELAS
+========================= */
+
+/* Geral */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+/* Células */
+td, th {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    vertical-align: middle;
+    text-align: left;
+    overflow-wrap: break-word;
+}
+
+/* =========================
+   MENU LATERAL (layout)
+========================= */
+
+#menu-lateral {
+    position: sticky;
+    top: 130px;
+    height: calc(100vh - 130px);
+    text-align: left;
+    overflow-y: auto; /* Permite rolagem vertical */
+    overflow-x: hidden; /* Esconde rolagem horizontal */
+}
+
+
+#menu-lateral::-webkit-scrollbar {
+  width: 4px;
+}
+
+#menu-lateral::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.18);
+  border-radius: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 991px) {
+    #menu-lateral {
+        position: static;
+        height: auto;
+    }
+}
+
+#menu-conteudo {
+    display: none !important;
+}
+
+/* =========================
+   CONTEÚDO DO MENU
+========================= */
+
+#navbar-progress {
+    height: auto;
+    overflow: visible;
+}
+
+.nivel1 {
+    color: black;
+    font-weight: 600;
+    margin-top: 12px;   /* espaço entre seções */
+    margin-bottom: 6px;
+}
+
+.nivel2 {
+    color: #3f3e3e;
+    font-weight: 400;
+    padding: 6px 0;     /* espaço entre subtópicos */
+}
+
+/* Garante que os menus clonados apareçam corretamente */
+#navbar-progress .menu-lateral,
+#menu-mobile .menu-lateral {
+    display: block !important;
+}
+
+/* =========================
+   SCROLLBAR (opcional)
+========================= */
+
+#navbar-progress::-webkit-scrollbar {
+    width: 6px;
+}
+
+#navbar-progress::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+
+/* =========================
+   NAVBAR SUPERIOR
+========================= */
+
+.navbar-custom {
+    background-color: #1a679f;
+}
+
+.navbar-custom .navbar-brand {
+    color: white;
+    text-decoration: none;
+}
+
+
+/* =========================
+   LINKS DO MENU
+========================= */
+
+.nav-pills a.nav-link {
+    color: #3f3e3e;
+    font-weight: 500;
+}
+
+.nav-pills a.nav-link.active {
+    background-color: rgba(201, 141, 137, 0.116);
+    border-radius: 0;
+    color: #2b2c2c;
+}
+
+/* =========================
+   ACCORDIONS
+========================= */
+
+#accordionFerramentas {
+    background-color: #fafafa;
+    padding: 10px;
+    padding-top: 1px;
+    --bs-accordion-btn-focus-box-shadow: none;
+    --bs-accordion-btn-focus-border-color: transparent;
+}
+
+.accordion-item {
+    margin: 0;
+    border: none;
+    background-color: transparent;
+}
+
+.accordion-button {
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+    color: #3f3e3e;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.accordion-body {
+    background-color: transparent;
+    color: #444;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+.icone-accordion {
+    width: 40px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card-cursor {
+    border: none;
+    border-radius: 0; 
+    background-color: #fafafa;
+}
+
+.card-cursor .card-body {
+    padding: 12px;
+}
+
+.card-text {
+    text-align: left;
+}
+
+
+
+.icone-wrapper {
+  width: 100px;      /* largura fixa do slot */
+  height: 100px;     /* altura fixa do slot */
+  min-width: 100px;  /* impede encolher no flex */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icone-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+
+/* =========================
+   LISTAS
+========================= */
+
+ul, ol {
+    font-size: 0.95rem;
+    font-weight: 300;
+    margin-bottom: 0.6rem;
+    padding-left: 1.2rem;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+li {
+    margin-bottom: 0.2rem;
+}
