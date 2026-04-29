@@ -96,6 +96,34 @@
         </ul>
 
         <a class="nav-link nivel1" href="#05">Camadas e compartilhamento</a>
+        <ul class="nav flex-column ms-3">
+            <li><a class="nav-link nivel2" href="#0501">Mapa de Fundo</a></li>
+
+            <!-- SUBMENU -->
+            <li>
+                <button class="nav-link nivel2 d-flex justify-content-between align-items-center w-100 text-start"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#submenu-0502"
+                        aria-controls="submenu-0502">
+                    Camadas
+                </button>
+
+                <ul class="collapse ms-3" id="submenu-0502">
+                    <li><a class="nav-link nivel2" href="#050201">Aspectos gerais</a></li>
+                    <li><a class="nav-link nivel2" href="#050202">Busca</a></li>
+                    <li><a class="nav-link nivel2" href="#050203">Botão Saiba mais sobre a camada</a></li>
+                    <li><a class="nav-link nivel2" href="#050204">Filtros</a></li>
+                    <li><a class="nav-link nivel2" href="#050205">Consultar intersecções entre feições de diferentes camadas</a></li>
+                    <li><a class="nav-link nivel2" href="#050206">Adicionar camada</a></li>
+                    <li><a class="nav-link nivel2" href="#050207">Camadas ativas</a></li>
+                    <li><a class="nav-link nivel2" href="#050208">Desligar todas</a></li>
+                </ul>
+            </li>
+
+            <li><a class="nav-link nivel2" href="#0503">Legendas</a></li>
+            <li><a class="nav-link nivel2" href="#0504">Compartilhar</a></li>
+            <li><a class="nav-link nivel2" href="#0505">Exportar / Imprimir</a></li>
+        </ul>
 
         <a class="nav-link nivel1" href="#06">Perguntas frequentes</a>
         <a class="nav-link nivel1" href="#07">Saiba mais</a>
@@ -163,8 +191,8 @@
                         <strong>Intranet</strong>, facilmente identificado por uma faixa azul na parte superior do portal. Pode ser acessado exclusivamente 
                         pelos usuários da Prefeitura de São Paulo.</p>
 
-                    <p> Para a população em geral, fora da rede Prodam, há o GeoSampa na internet. O GeoSampa Internet pode ser facilmente identificado por 
-                        uma faixa preta na parte superior do portal. </p>
+                    <p> Para a população em geral, fora da rede Prodam, há o GeoSampa na internet. O GeoSampa <strong>Internet</strong> pode ser facilmente 
+                        identificado por uma faixa preta na parte superior do portal. </p>
                     
                     <p> O GeoSampa Intranet passou por uma reformulação da Interface de navegação. Este tutorial é relacionado à essa nova versão. Nos 
                         próximos meses, a versão antiga e nova do GeoSampa irão coexistir para que façamos uma transição tranquila. A seguir, deixamos os 
@@ -320,11 +348,11 @@
                         <table width="200" cellspacing="1" cellpadding="1" border="1">
                                     <tbody>
                                         <tr>
-                                            <td><strong>PDF</strong></td>
+                                            <td><strong>PDF*</strong></td>
                                             <td>Portable Document Format: arquivo para visualização, sem possibilidade de edição.</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>DXF</strong></td>
+                                            <td><strong>DXF*</strong></td>
                                             <td>Drawing Exchange Format: arquivo vetorial, em código aberto, usado para compartilhamento universal em 
                                                 formato CAD. No GeoSampa é usado para disponibilizar o mapeamento altimétrico e planialtimétrico do Mapa 
                                                 Digital da Cidade (MDC). Os arquivos estão divididos por folhas do Sistema Cartográfico Metropolitano 
@@ -337,12 +365,12 @@
                                                 de Informações Geográficas.</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>KMZ</strong></td>
+                                            <td><strong>KMZ*</strong></td>
                                             <td>Keyhole Markup Zipped: linguagem baseada em XML e serve para visualização mapas em 2D e navegadores 
                                                 terrestres em 3D. É o padrão utilizado pelo Google Earth.</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>XLS | CSV</strong></td>
+                                            <td><strong>XLS | CSV*</strong></td>
                                             <td>Excel spreadsheet | Comma-Separated Values: Planilhas de dados e séries históricas.</td>
                                         </tr>
                                         <tr>
@@ -351,7 +379,7 @@
                                                 geográficas e implementado como um banco de dados.</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>JPEG | JPG</strong></td>
+                                            <td><strong>JPEG | JPG*</strong></td>
                                             <td>Joint Photographic Experts Group: formato de imagem em arquivo aberto, comprimido para redução do tamanho. 
                                                 Geralmente é acompanhado de arquivo .aux com a informações de localização geográfica para ser utilizado em 
                                                 softwares de geoprocessamento.</td>
@@ -363,29 +391,30 @@
                                                 para codificar uma variedade de estruturas de dados geográficos.</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>GPX*</strong></td>
+                                            <td><strong>GPX**</strong></td>
                                             <td>GPS Exchange Format é um formato aberto, baseado em XML que armazena dados geográficos em pontos e linhas.</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>TopoJSON*</strong></td>
+                                            <td><strong>TopoJSON**</strong></td>
                                             <td>Extensão do GeoJSON que reconhece topologia e codifica arcos compartilhados para reduzir o tamanho do 
                                                 arquivo, especialmente para bordas de polígonos.</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>IGC Files*</strong></td>
+                                            <td><strong>IGC Files**</strong></td>
                                             <td>São registros digitais padronizados de voos, contendo dados de GPS, altitude e tempo.</td>
                                         </tr>
                                     </tbody>
                                 </table>
 
-                                <p> <strong>*</strong> Disponíveis apenas para upload.</p>
+                                <p> <strong>*</strong> Disponíveis apenas para download de algumas camadas.</p>
+                                <p> <strong>**</strong> Disponíveis apenas para upload.</p>
 
                     <h2 id = "0203">Download com integração</h2>
 
                         <p> Algumas camadas possibilitam o download de arquivos não espaciais, como plantas, imagens, e documentos textuais. Ainda assim,
                             nestes casos, existe uma camada vetorial. Para fazer o download, basta clicar sobre uma das feições da camada vetorial associada 
                             e, em seguida, sobre o botão disponível na parte de baixo da janela de informação da feição. Na figura a seguir, está 
-                            demonstrado o exemplo para a camada 'MDT 2017 - Articulação'. Ao clicar sobre uma das quadrículas, você pode obter as 
+                            demonstrado o exemplo para a camada <strong>MDT 2017 - Articulação</strong>. Ao clicar sobre uma das quadrículas, você pode obter as 
                             informações associadas àquela feição e baixar os dados do levantamento LiDAR daquela porção específica do território da 
                             cidade.</p>
 
@@ -396,7 +425,7 @@
                     <h2 id="0301">Dados abertos</h2>
 
                         <p> Os dados em formato aberto permitem que qualquer cidadão utilize variados softwares para adaptá-los às suas necessidades. Além 
-                            disso, essas informações contribuem para a transparência e o processo participativo, bem como para a criação de novas 
+                            disso, estas informações contribuem para a transparência e o processo participativo, bem como para a criação de novas 
                             aplicações colaborativas.</p>
 
                     <h2 id="0302">Metadados</h2>
@@ -407,19 +436,19 @@
 
                         <p> Clicando no botão 
                             <a href = "https://metadados.geosampa.prefeitura.sp.gov.br/geonetwork/srv/por/catalog.search#/home">Metadados</a>, localizado 
-                            no canto superior direito do GeoSampa, você acessa o Catálogo de Metadados classificado por tópicos, e para algumas bases, o 
-                            dicionário de variáveis disponível em planilha.</p>
+                            no canto superior direito do GeoSampa, você acessa o Catálogo de Metadados classificado por tópicos. Para algumas bases, também 
+                            está disponível o dicionário de dados disponível em planilha.</p>
 
                         <img class="img-conteudo" src=imagens/03020001_tela-metadados.png alt="03020001" class="img-conteudo">
 
-                        <p> Ao acessar o Catálogo de Metadados, você encontrará uma barra de pesquisa. Nela, você pode pesquisar pelo nome de uma camada 
-                            ou por um termo. Você pode também fazer a consulta a partir dos Tópicos, que são marcadores criados para agrupar camadas com 
-                            tema semelhante.</p>
+                        <p> Ao acessar o <strong>Catálogo de Metadados</strong>, você encontrará uma barra de pesquisa. Nela, você pode pesquisar pelo nome de uma 
+                            camada ou por um termo. Você pode também fazer a consulta a partir dos <strong>Tópicos</strong>, marcadores criados para agrupar camadas 
+                            com tema semelhante.</p>
                         
                         <p> Ao acessar o metadado de uma camada, você encontrará, no mínimo, os seguintes itens preenchidos:</p>
                             
                             <ul>
-                                <li><strong>Título</strong> é o nome da camada. É o mesmo nome que ela recebe no Menu de Camadas, no GeoSampa.</li>
+                                <li><strong>Título</strong> é o nome da camada. É o mesmo nome que ela recebe no <strong>Menu de Camadas</strong>, no GeoSampa.</li>
                                 <li><strong>Resumo</strong> é a descrição breve do conteúdo, propósito e características da camada.</li>
                                 <li><strong>Datas</strong> contam com informações temporais relevantes, como criação, publicação e última atualização.</li>
                                 <li><strong>Contatos do recurso</strong> identificam pessoas ou organizações responsáveis pelo recurso, incluindo meios de 
@@ -693,10 +722,10 @@
 
                         <h3 id="040303">Setor.Quadra.Lote</h3>
 
-                            <p> Pesquisa nas camadas de Setor, Quadra e Lote Fiscais. A camada de Setor representa a maior unidade territorial do cadastro 
-                                fiscal do município. A camada de Quadra representa a segunda unidade territorial do cadastro imobiliário fiscal do município.
-                                A camada de Lotes é a representação cartográfica oficial do Cadastro Imobiliário Fiscal da Secretaria da Fazenda (SF) e a 
-                                menor unidade de representação do cadastro fiscal.</p>
+                            <p> Pesquisa nas camadas de Setor, Quadra e Lote Fiscais. A camada <strong>Setor</strong> representa a maior unidade territorial do 
+                                cadastro fiscal do município. A camada <strong>Quadra</strong> representa a segunda unidade territorial do cadastro imobiliário 
+                                fiscal do município. A camada <strong>Lotes</strong> é a representação cartográfica oficial do Cadastro Imobiliário Fiscal da 
+                                Secretaria da Fazenda (SF) e a menor unidade de representação do cadastro fiscal.</p>
 
                             <p> A pesquisa pode ser feita: </p>
 
@@ -966,7 +995,7 @@
 
                                         <p>As três últimas ferramentas são para a edição dos desenhos e textos adicionados.</p>
 
-                                        <p> A ferramenta Exportar Anotações <img src=imagens/04040413_botao-desenho-exportar-anotacoes.png
+                                        <p> A ferramenta <strong>Exportar Anotações</strong> <img src=imagens/04040413_botao-desenho-exportar-anotacoes.png
                                             alt="04040413" class="icone-inline"> permite a exportação todos os desenhos adicionados ao mapa em arquivos 
                                             abertos, nos formatos GeoJSON, GPX (apenas pontos e linhas) e KML.</p>
 
@@ -1035,11 +1064,11 @@
 
                                         <img src=imagens/04040505_tela-consultas-poligono.png alt="04040505" class="img-conteudo">
 
-                                        <p> Para retornar à lista de resultados, clique sobre o botão <strong>Voltar à lista de seleção</strong>.</p>
+                                        <p> Para retornar à lista de resultados, clique sobre o botão <strong>Voltar para a lista de resultados</strong>.</p>
 
                                         <img src=imagens/04040506_tela-consultas-voltar.png alt="04040506" class="img-conteudo">
 
-                                        <p> O botão <buffer>Consultar feições por um buffer</buffer> <img 
+                                        <p> O botão <strong>Consultar feições por um buffer</strong> <img 
                                             src=imagens/04040507_botao-consultas-buffer.png alt="botao-consulta-buffer" class="icone-inline"> permite que 
                                             a consulta seja feita a partir de um buffer (área de influência radial) criado pelo usuário. Assim, você obtém 
                                             os dados de todas as feições das camadas habilitadas que interseccionam o buffer desenhado.</p>
@@ -1059,7 +1088,7 @@
 
                                         <img src=imagens/04040510_tela-consultas-buffer-resultados-informacoes.png alt="04040510" class="img-conteudo">
 
-                                        <p> Para retornar à lista de resultados, clique sobre o botão <strong>Voltar à lista de seleção</strong>.</p>
+                                        <p> Para retornar à lista de resultados, clique sobre o botão <strong>Voltar para a lista de resultados</strong>.</p>
 
                                     </div>
 
@@ -1098,8 +1127,7 @@
                                         <p> Depois de selecionar a opções, clique em Iniciar rastreamento para que seu percurso comece a ser desenhado na 
                                             tela.</p>
 
-                                        <p> Esse dado pode ser exportado ao final do percurso e se você atualizar a página, esse dado não será 
-                                            armazenado.</p>
+                                        <p> Esse dado pode ser exportado ao final do percurso. Este dado não será armazenado caso a página seja atualizada.</p>
                                         
                                     </div>
                                 
@@ -1172,7 +1200,7 @@
                                             <p> O CEDI conta com dados de cadastro e histórico sobre as edificações da cidade de São Paulo. Para fazer a 
                                                 pesquisa, preencha os campos Setor, Quadra e Lote e clique no botão <strong>Consultar Integração</strong>. 
                                                 Será habilitada uma janela com dados de: número do contribuinte, área de terreno, a área construída, a 
-                                                testada e a situação da edificação (indica se a edificação é “regular” ou “irregular”, de acordo com o 
+                                                testada e a situação da edificação (indica se a edificação é 'regular' ou 'irregular', de acordo com o 
                                                 cadastro do CEDI), Observação da Consolidação, Tipo de Emissão e Data da Consolidação (data que a situação 
                                                 da edificação foi alimentada no CEDI). </p>
 
@@ -1267,10 +1295,10 @@
 
                     <h2 id="0502">Camadas</h2>
 
-                        <h3 id="050200"> Aspectos gerais</h3>
+                        <h3 id="050201"> Aspectos gerais</h3>
 
-                            <p> Em 'Camadas' está o cerne do conteúdo do GeoSampa. Nas centenas de camadas disponíveis, há arquivos nos formatos raster 
-                                (imageamentos) ou vetoriais (feições em pontos, linhas ou polígonos com informações associadas). Além disso, a natureza e a 
+                            <p> Em <strong>Camadas</strong> está o cerne do conteúdo do GeoSampa. Nas centenas de camadas disponíveis, há arquivos nos formatos 
+                                raster (imageamentos) ou vetoriais (feições em pontos, linhas ou polígonos com informações associadas). Além disso, a natureza e a 
                                 origem das informações são variadas, assim como são diferentes os tipos de representação (cartografia temática ou sistemática) 
                                 e, ainda, os tipos de informação associadas. Há, ainda, camadas com a possibilidade de downloads integrados de imagens ou 
                                 documentos. Todas as informações associadas estão descritas nos metadados de cada camada. Para acessar o metadado específico 
@@ -1524,16 +1552,16 @@
 
                             <img src=imagens/05020001_tela-minhas-camadas.png alt="05020001" class="img-conteudo">
 
-                        <h3 id="050201"> Busca</h3>
+                        <h3 id="050202"> Busca</h3>
 
                             <p> A navegação no menu de camadas pode ser facilitada pela caixa de busca, logo acima da árvore de camadas, na qual é 
-                                possível realizar a busca fonética das camadas de interesse, ou seja, erros ortográficos ou aproximações são toleradas 
+                                possível realizar a busca fonética das camadas de interesse - quer dizer, erros ortográficos ou aproximações são toleradas 
                                 pela busca, que apresenta resultados semelhantes. A visualização da ordem das pastas pode ser alterada entre 
                                 'Ordem Padrão' (nas classes pré-definidas) ou 'Ordem Alfabética'. </p>
 
                             <img src=imagens/05020101_tela-camadas-busca.png alt="05020101" class="img-conteudo">
 
-                        <h3 id="050202"> Botão Saiba mais sobre a camada <img src=imagens/02020001_botao-saiba-mais.png alt="02020001" 
+                        <h3 id="050203"> Botão Saiba mais sobre a camada <img src=imagens/02020001_botao-saiba-mais.png alt="02020001" 
                             class="icone-inline"></h3>
 
                             <p> Para localizar informações resumidas sobre as camadas, o acesso aos seus metadados, ao download das feições e aos serviços 
@@ -1557,12 +1585,12 @@
                                     <img src=imagens/05020202_tela-detalhes-camada.png alt="05020202" class="img-conteudo"></li>
                                 </ul>   
 
-                        <h3 id="050203"> Filtros </h3>
+                        <h3 id="050204"> Filtros </h3>
 
                             <p> A ferramenta <strong>Filtros</strong> <img src=imagens/05020301_botao-filtro.png alt="05020301" class="icone-inline"> 
                                 permite filtrar elementos de uma camada a partir do conteúdo de seus atributos. É possível, por exemplo, pesquisar um 
                                 distrito pelo nome e/ou área. Ao clicar no ícone ao lado do nome da camada cujos registros serão filtrados (no caso, 
-                                'Distrito'). Será habilitada uma janela como esta.</p>
+                                camada <strong>Distrito</strong>). Será habilitada uma janela como esta.</p>
 
                             <img src=imagens/05020302_tela-filtros.png alt="05020302" class="img-conteudo">
 
@@ -1575,18 +1603,18 @@
                                 as necessidades do usuário.</p>
 
                             <p> Pode-se, por exemplo, filtrar a geometria a partir de seu nome exato. Para isto, selecione o campo que conta com os dados 
-                                dos nomes da camada (no caso, 'nm_distrito_municipal'); selecione a opção 'Igual a'; e insira o nome da geometria que se 
-                                deseja filtrar (no caso, 'SÉ').</p>
+                                dos nomes da camada (no caso, <strong>nm_distrito_municipal</strong>); selecione a opção <strong>Igual a</strong>; e insira 
+                                o nome da geometria que se deseja filtrar (no caso, 'SÉ').</p>
 
                             <img src=imagens/05020303_tela-filtros-igual-a.png alt="05020303" class="img-conteudo">
 
-                            <p> Clicando em 'Aplicar', o mapa irá enquadrar a(s) geometria(s) selecionadas. Caso a camada seja ligada, apenas a(s) 
+                            <p> Clicando em <strong>Aplicar</strong>, o mapa irá enquadrar a(s) geometria(s) selecionadas. Caso a camada seja ligada, apenas a(s) 
                                 geometria(s) filtradas serão reproduzidas.</p>
 
                             <img src=imagens/05020304_tela-filtros-igual-a-resultados.png alt="05020304" class="img-conteudo">
 
-                            <p> Outra opção é filtrar nomes diferentes do especificado. Basta que, ao invés de 'Igual a', seja selecionada a opção 
-                                'Diferente de'. Neste caso, foram filtradas todas as geometrias com nome diferente de 'SE'.</p>
+                            <p> Outra opção é filtrar nomes diferentes do especificado. Basta que, ao invés de <strong>Igual a</strong>, seja selecionada a
+                                opção <strong>Diferente de</strong>. Neste caso, foram filtradas todas as geometrias com nome diferente de 'SE'.</p>
 
                             <img src=imagens/05020305_tela-filtros-diferente.png alt="05020305" class="img-conteudo">
 
@@ -1597,7 +1625,7 @@
                             <p> Neste caso, são apresentados todos os distritos de São Paulo, exceto a Sé.</p>
 
                             <p> Pode-se, também, filtrar a geometria a partir de parte de seu nome. Neste caso, por exemplo, foram filtrados todos os 
-                                distritos com nome que contém a letra R em sua grafia, independentemente da localização desta letra na palavra.</p>
+                                distritos com nome que contém a letra 'R' em sua grafia, independentemente da localização desta letra na palavra.</p>
 
                             <img src=imagens/05020307_tela-filtros-letra-r.png alt="05020307" class="img-conteudo">
 
@@ -1658,7 +1686,32 @@
 
                             <img src=imagens/05020315_tela-filtros-nem-area-maior-nem-letra-h-resultados.png alt="05020315" class="img-conteudo">
 
-                        <h3 id="050204"> Adicionar camada</h3>
+                        <h3 id="050205"> Consultar intersecções entre feições de diferentes camadas</h3>
+
+                            <p> Você também pode consultar se há intersecções entre feições de diferentes camadas. Para isto, habilite as camadas de interesse
+                                (no caso a seguir, foram usadas as camadas <strong>Distrito</strong> e <strong>Bibliotecas</strong>). Em seguida, clique 
+                                no distrito de interesse e uma nova janela se abrirá. </p>
+
+                            <img src=imagens/05020401_tela-distrito.png alt="05020401" class="img-conteudo">
+
+                            <p> Clique no botão <strong>Pesquisar a partir de buffer desta seção</strong>. Defina uma distância para o buffer (utilize 0 caso queira
+                            comparar com a geometria já existente. Utilize um número para criar uma área de influência no entorno da feição de interesse e onde a 
+                            pesquisa será realizada) e clique em <strong>Buscar</strong>. Uma nova janela será habilitada.</p>
+
+                            <img src=imagens/05020402_janela-feicoes-selecionadas.png alt="05020402" class="img-conteudo">
+
+                            <p> A imagem anterior mostra os polígonos interseccionados com a feição do distrito do Sacomã:</p>
+
+                            <ul>
+
+                                <li> Três distritos: Cursino, Ipiranga e o próprio Sacomã;</li>
+                                <li> Duas bibliotecas.</li>
+
+                            </ul>
+
+                            <p>Para acessar os dados das feições selecionadas, basta clicar sobre o código presente na janela.</p>
+                        
+                        <h3 id="050206"> Adicionar camada</h3>
 
                             <p> Para ampliar as possibilidades de cruzamentos de informações e análises resultantes é possível importar e visualizar 
                                 camadas externas, que não estão disponíveis no GeoSampa. Para isso, clique no botão <strong>Camadas</strong> 
@@ -1670,37 +1723,36 @@
 
                             <img src=imagens/05020403_tela-adicionar-camada.png alt="05020403" class="img-conteudo">
 
-                            <p> Para inserir uma camada de um serviço web, clique no botão 'Adicionar camada da web'. Será habilitada uma caixa de 
-                                diálogo:</p>
+                            <p> Para inserir uma camada de um serviço web, clique no botão <strong>Adicionar camada da web</strong>. Será habilitada uma caixa 
+                                de diálogo:</p>
 
                             <img src=imagens/05020404_tela-adicionar-servico-web.png alt="05020404" class="img-conteudo">
 
-                            <p> Escolha o serviço que clique em Conectar. Serão listadas as camadas disponíveis. Para incorporá-las, clique em <strong>
-                                'Adicionar ao mapa'</strong>.</p>
+                            <p> Escolha o serviço que clique em <strong>Conectar</strong>. Serão listadas as camadas disponíveis. Para incorporá-las, clique 
+                                em <strong>Adicionar ao mapa</strong>.</p>
 
-                            <p> Em seguida, cole a url do serviço no campo indicado e clique em <strong>'Conectar'</strong>.</p>
+                            <p> Em seguida, cole a <i>url</i> do serviço no campo indicado e clique em <strong>Conectar</strong>.</p>
 
-                            <p> Para inserir uma camada a partir de um arquivo armazenado localmente, clique no botão <strong>'Enviar dados'</strong>. 
-                                Você pode incluir arquivos nas extensões shp, gpkg, kml, GPX, GeoJSON, TopoJSON e IGC. Basta arrastar os arquivos para a 
+                            <p> Para inserir uma camada a partir de um arquivo armazenado localmente, clique no botão <strong>Enviar dados</strong>. 
+                                Você pode incluir arquivos nas extensões SHP, GPKG, KML, GPX, GeoJSON, TopoJSON e IGC. Basta arrastar os arquivos para a 
                                 caixa indicada ou escolher os arquivos localmente.</p>
 
                             <img src=imagens/05020405_tela-adicionar-camada-local.png alt="05020405" class="img-conteudo">
 
-                            <p> Os arquivos devem ter até 50MB e deve estar nos SRC SIRGAS 2000 UTM 23S (EPSG 31983) ou WGS84 (EPSG 4326). Após inseri-los, você 
+                            <p> Os arquivos devem ter até 50MB e estar nos SRC SIRGAS 2000 UTM 23S (EPSG 31983) ou WGS84 (EPSG 4326). Após inseri-los, você 
                                 ainda poderá visualizar seus atributos no GeoSampa. </p>
 
-                            <p> As camadas inseridas pelo usuário (assim como as anotações realizadas) podem ser gerenciadas acessando o menu 'Camadas'
-                                <img src=imagens/05020401_botao-camadas.png alt="05020401" class="icone-inline"> e clicando na aba <strong>'Minhas camadas'.
-                                </strong> </p>
+                            <p> As camadas inseridas pelo usuário (assim como as anotações realizadas) podem ser gerenciadas acessando o menu <strong>Camadas</strong>
+                                <img src=imagens/05020401_botao-camadas.png alt="05020401" class="icone-inline"> e clicando na aba <strong>Minhas camadas</strong>. </p>
 
-                        <h3 id="050205"> Camadas ativas</h3>
+                        <h3 id="050207"> Camadas ativas</h3>
 
-                            <p> Além disso, a visualização das camadas selecionadas pelo usuário é encontrada na aba “Camadas Ativas”, onde estão 
+                            <p> Além disso, a visualização das camadas selecionadas pelo usuário é encontrada na aba <strong>Camadas Ativas</strong>, onde estão 
                                 localizadas as ferramentas de ajuste de estilo (opacidade, saturação, tons de cinza).</p>
 
                             <img src=imagens/05020501_tela-camadas-ativas.png alt="05020501" class="img-conteudo">
 
-                        <h3 id="050206"> Desligar todas</h3>
+                        <h3 id="050208"> Desligar todas</h3>
 
                             <p> Por fim, caso seja necessário reiniciar a árvore de camadas para sua condição inicial, deve-se desligar todas as camadas.</p>
 
@@ -1709,7 +1761,7 @@
                     <h2 id="0503"> Legendas</h2>
 
                         <p> A visualização das camadas temáticas com legendas pode ser acessada de duas maneiras: com o clique na segunda opção do Menu 
-                            lateral direto; ou, na própria caixa de camadas, após a seleção das camadas desejadas com a opção <strong>'Mostrar legenda'
+                            lateral direto; ou, na própria caixa de camadas, após a seleção das camadas desejadas com a opção <strong>Mostrar legenda
                             </strong>. São mostradas as legendas de todas das camadas ativas no menu.</p>
 
                         <img src=imagens/05030001_tela-legendas.png alt="05030001" class="img-conteudo">
@@ -1746,20 +1798,21 @@
 
                     <h2 id="0601"> Como encontrar um número de IPTU (SQL)?</h2>
 
-                            <p> O código SQL (setor-quadra-lote) representa a identificação dos lotes no Cadastro Imobiliário Fiscal da PMSP. Como indicado na 
-                                imagem a seguir, o código é composto a partir do número de identificação do setor, quadra e lote fiscal.</p>
+                            <p> O código SQL (setor-quadra-lote) representa a identificação dos lotes no Cadastro Imobiliário Fiscal da Prefeitura Municipal
+                                de São Paulo. Como indicado na imagem a seguir, o código é composto a partir do número de identificação do setor, quadra e 
+                                lote fiscal.</p>
 
                             <img src=imagens/06010001_codigo-sql.png alt="060101" class="img-conteudo">
                                 
                             <p> Este código corresponde ao número do contribuinte e pode ser localizado no boleto de pagamento do IPTU. Também é possível 
                                 identificar o código SQL e outros dados dos lotes fiscais utilizando o GeoSampa.</p>
 
-                            <p> O GeoSampa disponibiliza informações fiscais do lote na camada 'Lote', que é atualizada pela Secretaria da Fazenda. Esta camada 
-                                substitui os antigos 'croquis fiscais', que não são atualizados desde junho de 2019. </p>
+                            <p> O GeoSampa disponibiliza informações fiscais do lote na camada <strong>Lote</strong>, que é atualizada pela Secretaria da Fazenda. 
+                                Esta camada substitui os antigos 'croquis fiscais', que não são atualizados desde junho de 2019. </p>
 
                             <p> Para facilitar a utilização do munícipe, as informações de SQL já aparecem concatenadas como código do contribuinte. Basta 
                                 deixar a camada  <strong>Lote</strong> ativa e clicar sobre alguma feição para visualizar as informações disponíveis. Será 
-                                aberta uma caixa com o código de setor.quadra.lote (SSS.QQQ.LLLL) e todas as informações pertencentes a ele nesta camada. </p>
+                                aberta uma caixa com o código de Setor.Quadra.Lote (SSS.QQQ.LLLL) e todas as informações pertencentes a ele nesta camada. </p>
                             
                             <img src=imagens/06010002_tela-camada-lote.png alt="060102" class="img-conteudo">
 
@@ -1803,25 +1856,40 @@
                             <ul>
 
                                 <li> Com o botão direito você pode mover o espaço analisado dentro da janela de visualização:</li>
-                                <div class="ratio ratio-16x9">
-                                    <iframe src="https://youtu.be/eNNWcycTDso"> </iframe>
-                                </div>
+                                
+                                    <div class="video-container">
+
+                                        <iframe src="https://www.youtube.com/embed/eNNWcycTDso" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                                    </div>
+
                                 <li> Com o botão esquerdo você ajusta a orientação da visualização do modelo 3D (rotacionar, inclinar, ajustar o ângulo de visão 
                                     etc.):</li>
-                                <div class="ratio ratio-16x9">
-                                    <iframe src="https://youtu.be/G0UTql4x6ss"> </iframe>
-                                </div>
+                                
+                                    <div class="video-container">
+                        
+                                        <iframe src="https://www.youtube.com/embed/G0UTql4x6ss" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                                    </div>
+
                                 <li> Com o botão de rolagem (scroll), você dá zoom no modelo 3D:</li>
-                                <div class="ratio ratio-16x9">
-                                    <iframe src="https://youtu.be/EPWOuHub9bw"> </iframe>
-                                </div>
+
+                                    <div class="video-container">
+                            
+                                        <iframe src="https://www.youtube.com/embed/EPWOuHub9bw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                                    </div>
+                                
                                 <li> O visualizador LiDAR possui menus de configurações e ferramentas, dispostos na lateral esquerda da tela e que permitem que 
                                      você aproxime o modelo 3D, calcule altura, entre outras funções. Entre as ferramentas disponíveis nesse menu, você vai 
                                      encontrar o 'Orçamento de pontos', onde você pode escolher quantos pontos vão estar disponíveis para visualização na nuvem 
                                      de pontos, bem como ferramentas para medir altura de edificações, distâncias, ângulo, volume etc.:</li>
-                                <div class="ratio ratio-16x9">
-                                     <iframe src="https://youtu.be/hR_KjoM8e20"> </iframe>
-                                </div>
+                                
+                                    <div class="video-container">
+                        
+                                        <iframe src="https://www.youtube.com/embed/hR_KjoM8e20" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                                    </div>
                                 
                             </ul>
 

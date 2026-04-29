@@ -119,6 +119,9 @@ document.addEventListener('DOMContentLoaded', () => {
         behavior: 'smooth'
       });
 
+      // atualiza a URL
+history.pushState(null, null, anchor.getAttribute('href'));
+
       // Fecha offcanvas no mobile
       const offcanvas = document.getElementById('menuOffcanvas');
       if (offcanvas?.classList.contains('show')) {
