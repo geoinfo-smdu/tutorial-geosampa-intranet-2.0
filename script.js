@@ -51,47 +51,64 @@ document.addEventListener('DOMContentLoaded', () => {
 
   });
 
-  /* ============================================
-     3. MENU → ACCORDION (FERRAMENTAS)
-     - Sempre abre
-     - Scroll acontece após abertura
-  ============================================ */
+  
+/* ============================================
+   3. MENU → ACCORDION (FERRAMENTAS)
+   - Sempre faz scroll
+   - Abre o accordion se estiver fechado
+============================================ */
 
-  document.querySelectorAll('[data-target-collapse]').forEach(trigger => {
+document.querySelectorAll('[data-target-collapse]').forEach(trigger => {
 
-    trigger.addEventListener('click', e => {
-      e.preventDefault();
-      e.stopPropagation();
+  trigger.addEventListener('click', e => {
+    e.preventDefault();
+    e.stopPropagation();
 
-      const targetId = trigger.getAttribute('data-target-collapse');
-      const collapse = document.querySelector(targetId);
-      if (!collapse) return;
+    const targetId = trigger.getAttribute('data-target-collapse');
+    const collapse = document.querySelector(targetId);
+
+    if (!collapse) return;
+
+    const header = collapse.closest('.accordion-item')
+      ?.querySelector('.accordion-header');
+
+    if (!header) return;
+
+    const navbar = document.querySelector('.fixed-top');
+    const offset = navbar ? navbar.offsetHeight + 10 : 140;
+
+    // Se estiver fechado, abre primeiro e só depois faz scroll
+    if (!collapse.classList.contains('show')) {
 
       const instance = bootstrap.Collapse.getOrCreateInstance(collapse, {
         toggle: false
       });
 
-      instance.show();
-
       collapse.addEventListener('shown.bs.collapse', function handle() {
-        const header = collapse.closest('.accordion-item')
-          ?.querySelector('.accordion-header');
 
-        if (header) {
-          const navbar = document.querySelector('.fixed-top');
-          const offset = navbar ? navbar.offsetHeight + 10 : 140;
-
-          window.scrollTo({
-            top: header.getBoundingClientRect().top + window.scrollY - offset,
-            behavior: 'smooth'
-          });
-        }
+        window.scrollTo({
+          top: header.getBoundingClientRect().top + window.scrollY - offset,
+          behavior: 'smooth'
+        });
 
         collapse.removeEventListener('shown.bs.collapse', handle);
-      });
-    });
 
+      }, { once: true });
+
+      instance.show();
+
+    } else {
+
+      // Se já estiver aberto, faz scroll imediatamente
+      window.scrollTo({
+        top: header.getBoundingClientRect().top + window.scrollY - offset,
+        behavior: 'smooth'
+      });
+
+    }
   });
+
+});
 
   /* ============================================
      4. SCROLL SUAVE PARA ÂNCORAS

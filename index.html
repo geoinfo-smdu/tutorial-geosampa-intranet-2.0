@@ -126,6 +126,13 @@
         </ul>
 
         <a class="nav-link nivel1" href="#06">Perguntas frequentes</a>
+        <ul class="nav flex-column ms-3">
+            <li><a class="nav-link nivel2" href="#0601">Como encontrar um número de IPTU (SQL)?</a></li>
+            <li><a class="nav-link nivel2" href="#0602">Como visualizar os dados LiDAR 3D?</a></li>
+            <li><a class="nav-link nivel2" href="#0603">Como fazer o download dos dados do IPTU?</a></li>
+            <li><a class="nav-link nivel2" href="#0604">Como fazer o download de plantas e imagens?</a></li>
+        </ul>
+
         <a class="nav-link nivel1" href="#07">Saiba mais</a>
         <a class="nav-link nivel1" href="#08">Ficha técnica</a>
 
@@ -188,11 +195,11 @@
                 <h1 id="00" ><br><br>Tutorial GeoSampa Intranet</h1>
 
                     <p> Este tutorial auxilia no uso das ferramentas disponíveis e na navegação pelos mapas e camadas de dados do GeoSampa 
-                        <strong>Intranet</strong>, facilmente identificado por uma faixa azul na parte superior do portal. Pode ser acessado exclusivamente 
-                        pelos usuários da Prefeitura de São Paulo.</p>
+                        <strong>Intranet</strong>. Pode ser acessado exclusivamente pelos usuários da Prefeitura de São Paulo, desde que conectados
+                        à rede interna da Prefeitura. Portanto, para acessar o GeoSampa Intranet pelo celular, é necessário estar conectado à rede 
+                        interna da Prefeitura.</p>
 
-                    <p> Para a população em geral, fora da rede Prodam, há o GeoSampa na internet. O GeoSampa <strong>Internet</strong> pode ser facilmente 
-                        identificado por uma faixa preta na parte superior do portal. </p>
+                    <p> Para a população em geral, fora da rede Prodam, há o GeoSampa na internet.</p>
                     
                     <p> O GeoSampa Intranet passou por uma reformulação da Interface de navegação. Este tutorial é relacionado à essa nova versão. Nos 
                         próximos meses, a versão antiga e nova do GeoSampa irão coexistir para que façamos uma transição tranquila. A seguir, deixamos os 
@@ -210,7 +217,7 @@
                                 <tbody>
                                     <tr>
                                         <td>GeoSampa Intranet</td>
-                                        <td><a href="http://mapas.geosampa2.prodam/" target="_blank">http://mapas.geosampa2.prodam/</a></td>
+                                        <td><a href="https://mapas.geosampa.prodam/" target="_blank">https://mapas.geosampa.prodam/</a></td>
                                     </tr>
                                     <tr>
                                         <td>GeoSampa Internet</td>
@@ -488,7 +495,10 @@
                                 <img class="img-conteudo" src=imagens/03040001_tela-escala.png alt="03040001">
                                 </li>
 
-                            </ul> 
+                            </ul>
+                            
+                        <p>No GeoSampa, você pode definir a escala numérica a ser utilizada na impressão de um mapa. Para maiores informações, consulte a seção
+                            <a href="#0505">Exportar / Imprimir</a>.</p>
 
                     <h2 id="0305">Coordenadas</h2>
 
@@ -819,7 +829,7 @@
                             
                                 </h2>
 
-                                <div id="collapse-zoom" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+                                <div id="collapse-zoom" class="accordion-collapse collapse">
 
                                     <div class="accordion-body">
                                         Aproxima ou afasta. Ao alterar o zoom, a escala também é alterada. Cada camada possui um limite de escala de 
@@ -850,8 +860,7 @@
 
                                     </h2>
 
-                                    <div id="collapse-rotacao" class="accordion-collapse collapse"
-                                        data-bs-parent="#accordionFerramentas">
+                                    <div id="collapse-rotacao" class="accordion-collapse collapse">
 
                                         <div class="accordion-body">
                                                 
@@ -887,7 +896,7 @@
                                 
                                 </h2>
 
-                                <div id="collapse-medicao" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+                                <div id="collapse-medicao" class="accordion-collapse collapse">
 
                                         <div class="accordion-body">
                                             <p> Ao clicar nesse botão, será aberta caixa de opções para realizar medições cartográficas no mapa. Você 
@@ -936,7 +945,7 @@
                                     </button>
                                 </h2>
 
-                                <div id="collapse-desenho" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+                                <div id="collapse-desenho" class="accordion-collapse collapse">
 
                                     <div class="accordion-body">
                                         
@@ -945,7 +954,7 @@
                                             excluir desenhos.</p>
                                 
                                         <p> Ao clicar na aba <strong>Desenho</strong> <img src=imagens/04040401_botao-desenho.png 
-                                            alt="04040401" class="icone-inline"> serão exibidas as ferramentas de desenho disponíveis.
+                                            alt="04040401" width="1200" height="800" class="icone-inline"> serão exibidas as ferramentas de desenho disponíveis.
 
                                         <p> A ferramenta <strong>Desenhar Polígono</strong> <img src=imagens/04040402_botao-desenho-poligono.png 
                                             alt="04040402" class="icone-inline"> permite a inclusão de um polígono no mapa. Para definir os vértices do 
@@ -955,7 +964,7 @@
                                         <p> Ao trocar o cursor para seta e clicar no polígono, uma janela será habilitada com as 
                                             seguintes informações:</p>
 
-                                        <img src=imagens/04040403_tela-controles-desenho-poligono.png alt="04040403" class="img-conteudo"> 
+                                        <img src=imagens/04040403_tela-controles-desenho-poligono.png alt="04040403" width="1200" height="800" class="img-conteudo"> 
 
                                         <p> A ferramenta <strong>Desenhar Linha</strong> <img src=imagens/04040404_botao-desenho-linha.png alt="04040404" 
                                             class="icone-inline"> permite a inclusão de uma linha no mapa. Para definir os vértices da nova linha, clique 
@@ -965,7 +974,7 @@
                                         <p> Ao trocar o cursor para seta e clicar na linha, uma janela será habilitada com as seguintes 
                                             informações:</p>
 
-                                        <img src=imagens/04040405_tela-controles-desenho-linha.png alt="04040405" class="img-conteudo">
+                                        <img src=imagens/04040405_tela-controles-desenho-linha.png alt="04040405" width="1200" height="800" class="img-conteudo">
 
                                         <p> A ferramenta <strong>Desenhar Ponto</strong> <img src=imagens/04040406_botao-desenho-ponto.png alt="04040406" 
                                             class="icone-inline"> permite a inclusão de um ponto no mapa. Para definir sua localização, clique com o botão 
@@ -973,7 +982,7 @@
 
                                         <p>Ao trocar o cursor para seta e clicar no ponto, uma janela será habilitada com as seguintes informações:</p>
 
-                                        <img src=imagens/04040407_tela-controles-desenho-ponto.png alt="04040407" class="img-conteudo">
+                                        <img src=imagens/04040407_tela-controles-desenho-ponto.png alt="04040407" width="1200" height="800" class="img-conteudo">
 
                                         <p> A ferramenta <strong>Círculo</strong> <img src=imagens/04040408_botao-desenho-circulo.png alt="04040408" 
                                             class="icone-inline"> permite a criação de um círculo no mapa. Para definir sua localização, clique com o botão 
@@ -982,7 +991,7 @@
 
                                         <p>Ao trocar o cursor para seta e clicar no círculo, uma janela será habilitada com as seguintes informações:</p>
 
-                                        <img src=imagens/04040409_tela-controles-desenho-circulo.png alt="04040409" class="img-conteudo">
+                                        <img src=imagens/04040409_tela-controles-desenho-circulo.png alt="04040409" width="1200" height="800" class="img-conteudo">
 
                                         <p> A ferramenta <strong>Desenhar Texto</strong> <img src=imagens/04040410_botao-desenho-texto.png alt="04040410" 
                                             class="icone-inline"> permite a inclusão de um texto ao mapa. O primeiro passo é definir o texto (que deve ser 
@@ -991,7 +1000,7 @@
                                         
                                         <img src=imagens/04040411_tela-controle-desenhos-texto.png alt="04040411" class="img-conteudo">
 
-                                        <img src=imagens/04040412_tela-controle-desenhos-texto.png alt="04040412" class="img-conteudo">
+                                        <img src=imagens/04040412_tela-controle-desenhos-texto.png alt="04040412" width="1200" height="800" class="img-conteudo">
 
                                         <p>As três últimas ferramentas são para a edição dos desenhos e textos adicionados.</p>
 
@@ -1009,10 +1018,10 @@
                                             alt="04040415" class="icone-inline">. Depois de clicar no ícone indicado, selecione a anotação que será editada;
                                             e altere os parâmetros indicados no menu lateral. </p>
 
-                                        <img src=imagens/04040416_tela-desenho-modificar-anotacoes.png alt="04040416" class="img-conteudo">
+                                        <img src=imagens/04040416_tela-desenho-modificar-anotacoes.png alt="04040416" width="1200" height="800" class="img-conteudo">
 
                                         <p> O botão Excluir todas as Anotações <img src=imagens/04040417_botao-desenho-excluir-anotacoes.png alt="04040417" 
-                                            class="icone-inline"> restaura a visualização a sua condição original e exclui todas as anotações criadas.</p>
+                                            width="1200" height="800" class="icone-inline"> restaura a visualização a sua condição original e exclui todas as anotações criadas.</p>
 
                                     </div>
                                 </div>
@@ -1033,8 +1042,7 @@
                                 
                                 </h2>
 
-                                <div id="collapse-consultas" class="accordion-collapse collapse"
-                                    data-bs-parent="#accordionFerramentas">
+                                <div id="collapse-consultas" class="accordion-collapse collapse">
 
                                     <div class="accordion-body">
                                         <p>A seção <strong>Consultas</strong> <img src=imagens/04040501_botao-consultas.png alt="04040501" 
@@ -1049,6 +1057,19 @@
                                         <p> Ao clicar sobre uma geometria, será habilitada uma caixa de diálogo com os dados disponíveis para a feição.</p>
 
                                         <img src=imagens/04040503_tela-consultas-clique.png alt="04040503" class="img-conteudo">
+
+                                        <p> Você também pode criar uma caixa de seleção retangular. Para isso, segure a tecla <i>Ctrl</i> do teclado; clique e segure
+                                            o botão esquerdo do mouse em algum ponto do mapa para iniciar a criação da caixa de seleção. Ainda segurando o
+                                            botão esquerdo do mouse, deslize até o local em que deve estar o vértice oposto da caixa de seleção; por fim, solte o botão esquerdo
+                                            do mouse para criar a caixa de seleção. Observe que todos os polígonos contidos na caixa de seleção serão selecionados.</p>
+
+                                        <img src=imagens/04040503_comp_tela-caixa-selecao.png alt="04040503-comp" class="img-conteudo">
+
+                                        <p> Clicando sobre o botão <strong>Analisar dados</strong>, você pode visualizar os dados para todas as feições em formato de tabela.
+                                            Além disso, clicando nos botões em destaque, pode fazer o download das feições selecionadas em diferentes formatos, 
+                                            como <i>csv</i> e <i>shp</i>.</p>
+
+                                        <img src=imagens/04040503_comp_tela-resultados-caixa-selecao.png alt="04040503-comp2" class="img-conteudo">
 
                                         <p> O botão <strong>Consultar feições desenhando um polígono</strong> <img 
                                             src=imagens/04040504_botao-consultas-poligono.png alt="botao-consulta-poligono" 
@@ -1090,6 +1111,15 @@
 
                                         <p> Para retornar à lista de resultados, clique sobre o botão <strong>Voltar para a lista de resultados</strong>.</p>
 
+                                        <p> Nos casos de seleção por caixa de seleção; polígono e buffer, é possível visualizar os dados das geometrias 
+                                            selecionadas em formato de tabela. Para isso, feita a seleção, clique sobre o botão <strong> Analisar dados</strong>.</p>
+                                            
+                                        <img src=imagens/04040510_comp_tela-analisar-dados.png alt="04040510-comp" class="img-conteudo">
+
+                                        <p> A janela aberta apresenta os campos das geometrias selecionadas pelo usuário, mesmo que pertençam a diferentes camadas: 
+                                            nestes casos, a janela contará com os campos das diferentes camadas selecionadas. Além disso, é possível Exportar
+                                            as feições selecionadas nos formato CSV, JSON, KML e SHP.</p>
+
                                     </div>
 
                                 </div>
@@ -1112,8 +1142,7 @@
                                 
                                 </h2>
 
-                                <div id="collapse-rastrear-localizacao" class="accordion-collapse collapse"
-                                    data-bs-parent="#accordionFerramentas">
+                                <div id="collapse-rastrear-localizacao" class="accordion-collapse collapse">
 
                                     <div class="accordion-body">
                                         <p> Com essa ferramenta, você pode mapear no GeoSampa um percurso real a partir de sua localização na cidade de 
@@ -1153,8 +1182,7 @@
 
                                 </h2>
 
-                                <div id="collapse-integracoes" class="accordion-collapse collapse"
-                                    data-bs-parent="#accordionFerramentas">
+                                <div id="collapse-integracoes" class="accordion-collapse collapse">
 
                                     <div class="accordion-body">
                                         
@@ -1308,7 +1336,7 @@
                             <p> A visualização das diversas camadas está classificada em oito categorias temáticas, que estão abaixo descritas com suas 
                                 definições:</p>
 
-                            <div class="accordion" id="accordionFerramentas">
+                            <div class="accordion" id="accordionCamadas">
 
                                 <!-- ITEM 1 -->
                                 <div class="accordion-item">
@@ -1326,7 +1354,7 @@
                                 
                                     </h2>
 
-                                    <div id="collapse-tema-limites-territoriais" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+                                    <div id="collapse-tema-limites-territoriais" class="accordion-collapse collapse" data-bs-parent="#accordionCamadas">
 
                                         <div class="accordion-body">
                                             Compreende dados sobre as divisões territoriais, englobando tanto divisões administrativas (subprefeituras, 
@@ -1355,7 +1383,7 @@
                                 
                                     </h2>
 
-                                    <div id="collapse-tema-imagens-aereas-sensoriamento" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+                                    <div id="collapse-tema-imagens-aereas-sensoriamento" class="accordion-collapse collapse" data-bs-parent="#accordionCamadas">
 
                                         <div class="accordion-body">
                                             Compreende dados sobre imagens de satélite, coberturas aerofotográficas, ortofotos, cartas topográficas, entre 
@@ -1383,7 +1411,7 @@
                                 
                                     </h2>
 
-                                    <div id="collapse-tema-meio-fisico" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+                                    <div id="collapse-tema-meio-fisico" class="accordion-collapse collapse" data-bs-parent="#accordionCamadas">
 
                                         <div class="accordion-body">
                                             Compreende dados sobre aspectos da superfície e subsuperfície do território da cidade - solo, subsolo e águas -, 
@@ -1411,7 +1439,7 @@
                                 
                                     </h2>
 
-                                    <div id="collapse-tema-meio-ambiente" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+                                    <div id="collapse-tema-meio-ambiente" class="accordion-collapse collapse" data-bs-parent="#accordionCamadas">
 
                                         <div class="accordion-body">
                                             Compreende dados sobre recursos naturais e o conjunto de influências e interações entre o homem e tais recursos: 
@@ -1444,7 +1472,7 @@
                                 
                                     </h2>
 
-                                    <div id="collapse-tema-ambiente-construido" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+                                    <div id="collapse-tema-ambiente-construido" class="accordion-collapse collapse" data-bs-parent="#accordionCamadas">
 
                                         <div class="accordion-body">
                                             Compreende dados sobre intervenção humana no território destinada a organizar e viabilizar as atividades 
@@ -1472,7 +1500,7 @@
                                 
                                     </h2>
 
-                                    <div id="collapse-tema-dados-socioeconomicos-equipamentos" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+                                    <div id="collapse-tema-dados-socioeconomicos-equipamentos" class="accordion-collapse collapse" data-bs-parent="#accordionCamadas">
 
                                         <div class="accordion-body">
                                             Compreende dados sobre características gerais da população e sua vida social e política: componentes demográficas, 
@@ -1501,7 +1529,7 @@
                                 
                                     </h2>
 
-                                    <div id="collapse-tema-planejamento-urbano" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+                                    <div id="collapse-tema-planejamento-urbano" class="accordion-collapse collapse" data-bs-parent="#accordionCamadas">
 
                                         <div class="accordion-body">
                                             Compreende dados sobre planejamento urbano: Plano Diretor, Zoneamento (Lei de Parcelamento, Uso e Ocupação do 
@@ -1530,7 +1558,7 @@
                                 
                                     </h2>
 
-                                    <div id="collapse-tema-licenciamento" class="accordion-collapse collapse" data-bs-parent="#accordionFerramentas">
+                                    <div id="collapse-tema-licenciamento" class="accordion-collapse collapse" data-bs-parent="#accordionCamadas">
 
                                         <div class="accordion-body">
                                             Compreende os dados relacionados a dois tipos de licenciamento: o licenciamento ambiental (com dados das 
@@ -1734,7 +1762,7 @@
                             <p> Em seguida, cole a <i>url</i> do serviço no campo indicado e clique em <strong>Conectar</strong>.</p>
 
                             <p> Para inserir uma camada a partir de um arquivo armazenado localmente, clique no botão <strong>Enviar dados</strong>. 
-                                Você pode incluir arquivos nas extensões SHP, GPKG, KML, GPX, GeoJSON, TopoJSON e IGC. Basta arrastar os arquivos para a 
+                                Você pode incluir arquivos nas extensões KML, GPX, GeoJSON, TopoJSON e IGC. Basta arrastar os arquivos para a 
                                 caixa indicada ou escolher os arquivos localmente.</p>
 
                             <img src=imagens/05020405_tela-adicionar-camada-local.png alt="05020405" class="img-conteudo">
@@ -1894,6 +1922,36 @@
                                     </div>
                                 
                             </ul>
+
+                    <h2 id="0603"> Como fazer o download dos dados do IPTU?</h2>
+
+                            <p> Para fazer o download dos dados do cadastro do IPTU, localize a camada <strong>Lote</strong>. Clique no botão <img 
+                                src=imagens/06030001_botao-saiba-mais.png class="icone-inline"> ao lado do nome da camada e uma nova janela será
+                                aberta. </p>
+
+                            <p> Clique no botão <img src=imagens/06030002_botao_iptu.png class="icone-inline">. Em seguida, clicando no botão <img
+                                src=imagens/06030003_botao_seta.png class="icone-inline">, você acessa as bases de dados do IPTU desde 1995. localize
+                                o ano de interesse e clique no botão <img src=imagens/06030004_botao_download.png class="icone-inline"> ao lado para fazer
+                                o download dos dados disponíveis em formato <i>csv</i>.</p>
+
+                    <h2 id="0604"> Como fazer o download de plantas e imagens?</h2>
+
+                            <p> No GeoSampa, você pode fazer o download de diversas plantas - como <strong>Arruamento (ARR)</strong>, <strong>Área Urbanizada 
+                                Regularizada (AU)</strong>, <strong>Croquis Patrimoniais</strong> - e imagens - como <strong>Ortofotos</strong> e <strong>
+                                Cartas de Vegetação</strong>.</p>
+
+                            <p> Para fazer o download, localize, no menu de camadas, a camada que corresponde ao arquivo procurado. Imagens aéreas, ortofotos e 
+                                mapas históricos estão organizadas no grupo <strong>2. Imagens aéreas e Sensoriamento</strong>. No grupo <strong>5.05 Cadastro
+                                </strong>, você encontra as plantas relacionadas ao cadastro de áreas públicas e parcelamento (grupos 5.05.2 e 5.05.3, 
+                                respectivamente).</p>
+
+                            <p> Depois de escolher a quadrícula ou polígono de interesse, clique sobre sua geometria. Uma nova janela será aberta com os dados 
+                                associados à feição selecionada. No canto inferior, haverá um botão para o download do arquivo associado. </p>
+
+                            <p> Na imagem a seguir, por exemplo, basta clicar no botão <img src=imagens/06040001_botao_download.png class="icone-inline"> para fazer 
+                                o download dos arquivos relacionados à área cedida cujo número do Auto de Cessão é 4185.</p>
+
+                            <img src=imagens/06040002_tela_download.png class="img-conteudo">
 
                 <h1 id="07"> Saiba mais sobre o GeoSampa</h1>
 
